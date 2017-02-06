@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>相关概念 | ImagePy</title>
+  <meta name="author" content="yxdragon">
+  
+  <meta name="description" content="开源图像处理框架">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="相关概念"/>
+  <meta property="og:site_name" content="ImagePy"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">ImagePy</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/document" title="test">
+			  <i class="fa fa-book"></i>Document
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> 相关概念</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h2 id="数字图像处理基本概念"><a href="#数字图像处理基本概念" class="headerlink" title="数字图像处理基本概念"></a>数字图像处理基本概念</h2><ul>
+<li><h3 id="图像概念"><a href="#图像概念" class="headerlink" title="图像概念"></a>图像概念</h3><p>数字图像处理中所指的图像，确切地说叫光栅图，是点阵构成的，所以也称之为点阵图或位图（bit map），它的大小又深度和尺寸决定。</p>
+</li>
+<li><h3 id="尺寸"><a href="#尺寸" class="headerlink" title="尺寸"></a>尺寸</h3><p>构成图像的点阵的行数和列数，这决定了图像对空间细节的表现能力，所以也称之为分辨率。</p>
+</li>
+<li><h3 id="格式，深度"><a href="#格式，深度" class="headerlink" title="格式，深度"></a>格式，深度</h3><p>每个点阵的数据类型，如每个点是一个[0,255]的整数，是一个小数…每种数据类型在计算机中占特定的位，我们称单个像素所占的位称为图像的深度，这决定了单个点的信息描述能力，因此有些时候深度也称之为色彩分辨率。</p>
+</li>
+<li><h3 id="通道"><a href="#通道" class="headerlink" title="通道"></a>通道</h3><p>对于一些图像（比如彩色图像），包含了多个尺寸相同的点阵，我们称每个单一层为一个通道，这些通道各自描述了图像的某个维度的信息，只有合成之后，才是完整的。</p>
+</li>
+<li><h3 id="存储格式"><a href="#存储格式" class="headerlink" title="存储格式"></a>存储格式</h3><p>位图是一个一个的点数据，因此占据大量的存储空间，因而存储时可以对其进行压缩，由不同的原理得到的各种算法，就形成了存储格式，常见的有 Bmp(未压缩), jpg, png, tif等，不同与位图，他们的存储大小除了尺寸，还取决与像素的内容，不过无论采用什么压缩格式，在进行数字图像处理时，往往要先解压缩，在内存中形成位图。<br><strong>注：与像素数据格式是两个概念</strong></p>
+</li>
+</ul>
+<h2 id="ImagePy-用到的一些概念"><a href="#ImagePy-用到的一些概念" class="headerlink" title="ImagePy 用到的一些概念"></a>ImagePy 用到的一些概念</h2><ul>
+<li><h3 id="图像栈"><a href="#图像栈" class="headerlink" title="图像栈"></a>图像栈</h3><p>一些有相同尺寸，相同格式的图像构成的图像序列，称之为图像栈。ImagePy 中图像栈分为连续栈和列表栈，其中列表栈支持随时动态添加，删除图像，连续栈则不可以。但一些三维滤波器则必须在连续栈上才能运行。二者可以转换。</p>
+</li>
+<li><h3 id="索引色"><a href="#索引色" class="headerlink" title="索引色"></a>索引色</h3><p><img src="http://home.imagepy.org/manual/idxcolor.png" alt="" title="index color"><br>对于灰度图像，有时会通过特定的映射关系，把它映射成彩色。这的确增强了图像的肉眼可判读性，但并没有增加其包含的信息量，因而有时也称之为假彩色。</p>
+</li>
+<li><h3 id="选区"><a href="#选区" class="headerlink" title="选区"></a>选区</h3><p><img src="http://home.imagepy.org/manual/roi.png" alt="" title="selection"><br>顾名思义，它只是用于指定图像的一块区域，自身并没有什么作用，只是为其他的操作指明目标。在 ImagePy 里，选区是指一个叠加在图像上的矢量图形，可以是点，线，面，镂空多边形。</p>
+</li>
+<li><h3 id="掩膜"><a href="#掩膜" class="headerlink" title="掩膜"></a>掩膜</h3><p>一个与图像大小一样，全部像素由 0-1 构成的一张位图。类似与选区，但掩膜更直接地指明某个像素是否处于被选中状态，这有助于一些相关操作。（掩膜可以由选区填充而得到）</p>
+</li>
+<li><h3 id="标记"><a href="#标记" class="headerlink" title="标记"></a>标记</h3><p>是一个叠加在图像上的可绘制的一个层，可以是适量图形，位图，文字等，标记不对图像产生任何作用和影响，仅仅用于提示人。</p>
+</li>
+</ul>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+	
+	<!-- comment -->
+	
+	</div> <!-- col-md-9/col-md-12 -->
+		
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 yxdragon
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+   </html>

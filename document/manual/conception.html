@@ -129,9 +129,9 @@
 <h2 id="ImagePy-用到的一些概念"><a href="#ImagePy-用到的一些概念" class="headerlink" title="ImagePy 用到的一些概念"></a>ImagePy 用到的一些概念</h2><ul>
 <li><h3 id="图像栈"><a href="#图像栈" class="headerlink" title="图像栈"></a>图像栈</h3><p>一些有相同尺寸，相同格式的图像构成的图像序列，称之为图像栈。ImagePy 中图像栈分为连续栈和列表栈，其中列表栈支持随时动态添加，删除图像，连续栈则不可以。但一些三维滤波器则必须在连续栈上才能运行。二者可以转换。</p>
 </li>
-<li><h3 id="索引色"><a href="#索引色" class="headerlink" title="索引色"></a>索引色</h3><p><img src="http://home.imagepy.org/manual/idxcolor.png" alt="" title="index color"><br>对于灰度图像，有时会通过特定的映射关系，把它映射成彩色。这的确增强了图像的肉眼可判读性，但并没有增加其包含的信息量，因而有时也称之为假彩色。</p>
+<li><h3 id="索引色"><a href="#索引色" class="headerlink" title="索引色"></a>索引色</h3><p>对于灰度图像，有时会通过特定的映射关系，把它映射成彩色。这的确增强了图像的肉眼可判读性，但并没有增加其包含的信息量，因而有时也称之为假彩色。<br><img src="http://home.imagepy.org/manual/idxcolor.png" alt="" title="index color"></p>
 </li>
-<li><h3 id="选区"><a href="#选区" class="headerlink" title="选区"></a>选区</h3><p><img src="http://home.imagepy.org/manual/roi.png" alt="" title="selection"><br>顾名思义，它只是用于指定图像的一块区域，自身并没有什么作用，只是为其他的操作指明目标。在 ImagePy 里，选区是指一个叠加在图像上的矢量图形，可以是点，线，面，镂空多边形。</p>
+<li><h3 id="选区"><a href="#选区" class="headerlink" title="选区"></a>选区</h3><p>顾名思义，它只是用于指定图像的一块区域，自身并没有什么作用，只是为其他的操作指明目标。在 ImagePy 里，选区是指一个叠加在图像上的矢量图形，可以是点，线，面，镂空多边形。<br><img src="http://home.imagepy.org/manual/roisim.png" alt="" title="selection"></p>
 </li>
 <li><h3 id="掩膜"><a href="#掩膜" class="headerlink" title="掩膜"></a>掩膜</h3><p>一个与图像大小一样，全部像素由 0-1 构成的一张位图。类似与选区，但掩膜更直接地指明某个像素是否处于被选中状态，这有助于一些相关操作。（掩膜可以由选区填充而得到）</p>
 </li>

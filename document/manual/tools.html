@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>常用工具 | ImagePy</title>
+  <meta name="author" content="yxdragon">
+  
+  <meta name="description" content="开源图像处理框架">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="常用工具"/>
+  <meta property="og:site_name" content="ImagePy"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">ImagePy</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/document" title="test">
+			  <i class="fa fa-book"></i>Document
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> 常用工具</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h2 id="选取类"><a href="#选取类" class="headerlink" title="选取类"></a>选取类</h2><p>这些工具能够通过鼠标操作，在画布上绘制一个选取，ImagePy 支持点，线，面，复杂多边形。<br><img src="http://home.imagepy.org/manual/roitools.png" alt="" title="选区工具"><br><img src="http://home.imagepy.org/manual/roisim.png" alt="" title="选区演示"></p>
+<ul>
+<li><h3 id="Rectangle"><a href="#Rectangle" class="headerlink" title="Rectangle"></a>Rectangle</h3>指定矩形选区，鼠标位于矩形内部，可以拖拽移动选区，鼠标位于四角或边缘时，可以调整选取的大小。</li>
+<li><h3 id="Ellipse"><a href="#Ellipse" class="headerlink" title="Ellipse"></a>Ellipse</h3>指定椭圆选区，鼠标位于椭圆内部，可以拖拽移动选区，鼠标位于四角或边缘时，可以拖拽调整选取的大小。</li>
+<li><h3 id="Polygon"><a href="#Polygon" class="headerlink" title="Polygon"></a>Polygon</h3>多边形选区，鼠标依次点击，最后一个点右键闭合。当鼠标位于多边形内部，可以拖拽移动选区，鼠标位于节点时，可以拖拽调整节点位置。</li>
+<li><h3 id="FreeArea"><a href="#FreeArea" class="headerlink" title="FreeArea"></a>FreeArea</h3>自由区域选区，按下鼠标，绘制区域，抬起时自动闭合。当鼠标位于多边形内部，可以拖拽移动选区，鼠标位于节点时，可以拖拽调整节点位置。</li>
+<li><h3 id="Line"><a href="#Line" class="headerlink" title="Line"></a>Line</h3>多段线选区，鼠标依次点击，点右键结束。当鼠标位于节点时，可以拖拽调整节点位置。</li>
+<li><h3 id="FreeLine"><a href="#FreeLine" class="headerlink" title="FreeLine"></a>FreeLine</h3>自由轨迹选区，按下鼠标，绘制区域，抬起时自动闭合。当鼠标位于节点时，可以拖拽调整节点位置。</li>
+<li><h3 id="Point"><a href="#Point" class="headerlink" title="Point"></a>Point</h3>鼠标点击添加一个点选区，当鼠标位于某个点附近，可以拖拽移动点的位置。</li>
+<li><strong>关于叠加：</strong>所有的选区都可以按住 Shift 键进行叠加操作，另外面类型选区，还支持按住 Ctrl 键进行裁剪和镂空操作。<br><img src="http://home.imagepy.org/manual/roicomp.png" alt="" title="选区演示"></li>
+</ul>
+<h2 id="查看类"><a href="#查看类" class="headerlink" title="查看类"></a>查看类</h2><p>用于浏览图像，进行放大，缩小，平移等操作。<br><img src="http://home.imagepy.org/manual/viewtools.png" alt="" title="查看工具"><br><img src="http://home.imagepy.org/manual/view.png" alt="" title="查看工具"></p>
+<ul>
+<li><h3 id="Scale"><a href="#Scale" class="headerlink" title="Scale"></a>Scale</h3>单击左键放大，右键缩小，按住滚轮拖拽可进行移动。</li>
+<li><h3 id="Move"><a href="#Move" class="headerlink" title="Move"></a>Move</h3>拖拽进行移动，滚轮上下翻滚，可改变比例。</li>
+</ul>
+<h2 id="绘图类"><a href="#绘图类" class="headerlink" title="绘图类"></a>绘图类</h2><p>简单的绘图工具，可以在画布上选取颜色，通过调色板设定颜色，在图像上绘制笔记。<br><img src="http://home.imagepy.org/manual/drawtools.png" alt="" title="绘图工具"><br><img src="http://home.imagepy.org/manual/painter.png" alt="" title="绘图"></p>
+<ul>
+<li><h3 id="Painter"><a href="#Painter" class="headerlink" title="Painter"></a>Painter</h3>画笔，在画布上绘制，双击图标可以弹出对话框设置笔尖半径。</li>
+<li><h3 id="ColorPicker"><a href="#ColorPicker" class="headerlink" title="ColorPicker"></a>ColorPicker</h3>点击画布上的某一点摄取颜色，左键设为前景色，右键则是设置背景色。双击图标可以弹出颜色对话框。</li>
+</ul>
+<h4 id="以上为常规工具，完成一些通用工作，此外-ImagePy-有一系列专用工具，这些工具用于完成一些一些专业的特定工作，专业工具在最右边的下拉按钮中，可以相互切换。"><a href="#以上为常规工具，完成一些通用工作，此外-ImagePy-有一系列专用工具，这些工具用于完成一些一些专业的特定工作，专业工具在最右边的下拉按钮中，可以相互切换。" class="headerlink" title="以上为常规工具，完成一些通用工作，此外 ImagePy 有一系列专用工具，这些工具用于完成一些一些专业的特定工作，专业工具在最右边的下拉按钮中，可以相互切换。"></a>以上为常规工具，完成一些通用工作，此外 ImagePy 有一系列专用工具，这些工具用于完成一些一些专业的特定工作，专业工具在最右边的下拉按钮中，可以相互切换。</h4><h2 id="变换类"><a href="#变换类" class="headerlink" title="变换类"></a>变换类</h2><p>几何变换工具，支持旋转，缩放，当有选区时只作用在选区内。<br><img src="http://home.imagepy.org/manual/transtools.png" alt="" title="变换工具"><br><img src="http://home.imagepy.org/manual/trans.png" alt="" title="变换"></p>
+<ul>
+<li><h3 id="Rotate"><a href="#Rotate" class="headerlink" title="Rotate"></a>Rotate</h3>交互式进行图像旋转变换，可以用鼠标拖拽圆心到指定位置，图像将围绕该点旋转，同时可以在对话框输入各参数。</li>
+<li><h3 id="Scale-1"><a href="#Scale-1" class="headerlink" title="Scale"></a>Scale</h3>交互式进行图像缩放变换，可以用鼠标拖拽选区四角和四边进行缩放，也可以在选区内拖拽，进行图像平疑，同时可以在对话框输入各参数。</li>
+</ul>
+<h2 id="测量类"><a href="#测量类" class="headerlink" title="测量类"></a>测量类</h2><p><img src="http://home.imagepy.org/manual/measuretools.png" alt="" title="测量工具"><br><img src="http://home.imagepy.org/manual/measure.png" alt="" title="测量"></p>
+<ul>
+<li><h3 id="Coordinate"><a href="#Coordinate" class="headerlink" title="Coordinate"></a>Coordinate</h3>鼠标点击添加一个点测点，测点旁边会显示其坐标。</li>
+<li><h3 id="Distance"><a href="#Distance" class="headerlink" title="Distance"></a>Distance</h3>鼠标依次点击，点右键结束，形成的各点之间会用线段相连，在线段中间部位，显示线段长度。</li>
+<li><h3 id="Angle"><a href="#Angle" class="headerlink" title="Angle"></a>Angle</h3>鼠标依次点击，点右键结束，形成的各点之间会用线段相连，在角点处会显示该点所链接两线段的夹角。</li>
+<li><h3 id="Area"><a href="#Area" class="headerlink" title="Area"></a>Area</h3>鼠标依次点击，最后一个点右键闭合。多边形中间显示面积。当鼠标位于多边形内部，可以拖拽移动选区，鼠标位于节点时，可以拖拽调整节点位置。</li>
+</ul>
+<h2 id="图像栈操作"><a href="#图像栈操作" class="headerlink" title="图像栈操作"></a>图像栈操作</h2><p><img src="http://home.imagepy.org/manual/stacktools.png" alt="" title="图像栈工具"></p>
+<ul>
+<li><h3 id="Add-Slice"><a href="#Add-Slice" class="headerlink" title="Add Slice"></a>Add Slice</h3>在当前位置添加一张图像</li>
+<li><h3 id="Delete-Slice"><a href="#Delete-Slice" class="headerlink" title="Delete Slice"></a>Delete Slice</h3>删除当前图像</li>
+<li><h3 id="Previous-Slice"><a href="#Previous-Slice" class="headerlink" title="Previous Slice"></a>Previous Slice</h3>跳转到前一张</li>
+<li><h3 id="Next-Slice"><a href="#Next-Slice" class="headerlink" title="Next Slice"></a>Next Slice</h3>跳转到后一张</li>
+<li><h3 id="Set-Slice"><a href="#Set-Slice" class="headerlink" title="Set Slice"></a>Set Slice</h3>跳转到特定的位置</li>
+<li><h3 id="Orthogonal"><a href="#Orthogonal" class="headerlink" title="Orthogonal"></a>Orthogonal</h3>三视图观察</li>
+</ul>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+	
+	<!-- comment -->
+	
+	</div> <!-- col-md-9/col-md-12 -->
+		
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 yxdragon
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+   </html>

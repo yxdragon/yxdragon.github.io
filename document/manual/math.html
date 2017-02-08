@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ImagePy 文档 | ImagePy</title>
+  <title>数学运算 | ImagePy</title>
   <meta name="author" content="yxdragon">
   
-  <meta name="description" content="ImagePy Documents.">
+  <meta name="description" content="开源图像处理框架">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="ImagePy 文档"/>
+  <meta property="og:title" content="数学运算"/>
   <meta property="og:site_name" content="ImagePy"/>
 
   
@@ -95,7 +95,7 @@
     	 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> ImagePy 文档</h1>
+			<h1 class="title title-inverse "> 数学运算</h1>
 		</div>		
 	
 
@@ -112,36 +112,22 @@
 
 	<!-- content -->
 	<div class="mypage">		
-	  
-		 <div class="alert alert-success description">
-			<i class="fa fa-info-circle"></i> <p>ImagePy Documents.</p>
-			
-		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="ImagePy-v1-0"><a href="#ImagePy-v1-0" class="headerlink" title="ImagePy v1.0"></a>ImagePy v1.0</h1><p>GitHub: <a href="https://github.com/yxdragon/imagepy.git" target="_blank" rel="external">https://github.com/yxdragon/imagepy.git</a><br>Python 开源图像处理框架，轻量级，高弹性设计</p>
-<h2 id="ImagePy-文档"><a href="#ImagePy-文档" class="headerlink" title="ImagePy 文档"></a>ImagePy 文档</h2><h3 id="操作手册"><a href="#操作手册" class="headerlink" title="操作手册"></a>操作手册</h3><ul>
-<li><a href="./manual/view.html">界面构成</a></li>
-<li><a href="./manual/conception.html">相关概念</a></li>
-<li><a href="./manual/open.html">打开图像</a></li>
-<li><a href="./manual/tools.html">常用工具</a></li>
-<li><a href="./manual/histogram.html">直方图调整</a></li>
-<li><a href="./manual/math.html">数学运算</a></li>
-<li><a href="./manual/filter.html">滤波器</a></li>
-<li><a href="./writing.html">图像变换</a></li>
-<li><a href="./writing.html">形态学</a></li>
-<li><a href="./writing.html">选区运算</a></li>
-<li><a href="./writing.html">标记和像素统计</a></li>
-<li><a href="./writing.html">录制宏</a></li>
+	  <h2 id="数学运算"><a href="#数学运算" class="headerlink" title="数学运算"></a>数学运算</h2><p>直方图运算的实质是对像素值做一个线性运算，而数学运算则更广义的针对每个值做一个预定义的数学运算。</p>
+<h4 id="ImagePy-中所有的数学运算都支持图像预览和撤销操作，如果滤波器有参数输入会提供一个友好的交互对话框。"><a href="#ImagePy-中所有的数学运算都支持图像预览和撤销操作，如果滤波器有参数输入会提供一个友好的交互对话框。" class="headerlink" title="ImagePy 中所有的数学运算都支持图像预览和撤销操作，如果滤波器有参数输入会提供一个友好的交互对话框。"></a>ImagePy 中所有的数学运算都支持图像预览和撤销操作，如果滤波器有参数输入会提供一个友好的交互对话框。</h4><p><img src="http://home.imagepy.org/manual/math.png" alt="" title="数学运算"></p>
+<ul>
+<li><h3 id="Process-gt-Math-gt-Add"><a href="#Process-gt-Math-gt-Add" class="headerlink" title="Process &gt; Math &gt; Add"></a>Process &gt; Math &gt; Add</h3>加法运算（等价于亮度调整，因为加法是线性运算）</li>
+<li><h3 id="Process-gt-Math-gt-Multiply"><a href="#Process-gt-Math-gt-Multiply" class="headerlink" title="Process &gt; Math &gt; Multiply"></a>Process &gt; Math &gt; Multiply</h3>乘法运算（等价于对比度调整，因为加法是线性运算）</li>
+<li><h3 id="Process-gt-Math-gt-Max"><a href="#Process-gt-Math-gt-Max" class="headerlink" title="Process &gt; Math &gt; Max"></a>Process &gt; Math &gt; Max</h3>最大值运算，图像上各个像素与一个定值求较大值</li>
+<li><h3 id="Process-gt-Math-gt-Min"><a href="#Process-gt-Math-gt-Min" class="headerlink" title="Process &gt; Math &gt; Min"></a>Process &gt; Math &gt; Min</h3>最小值运算，图像上各个像素与一个定值求较小值</li>
+<li><h3 id="Process-gt-Math-gt-Squre-Root"><a href="#Process-gt-Math-gt-Squre-Root" class="headerlink" title="Process &gt; Math &gt; Squre Root"></a>Process &gt; Math &gt; Squre Root</h3>平方根运算，对图像上各个像素求平方根</li>
+<li><h3 id="Process-gt-Math-gt-Garmma"><a href="#Process-gt-Math-gt-Garmma" class="headerlink" title="Process &gt; Math &gt; Garmma"></a>Process &gt; Math &gt; Garmma</h3>Garmma曲线矫正，对图像进行Garmma修正，这在一些硬件设备的增益矫正中非常常见。</li>
 </ul>
-<h3 id="开发文档"><a href="#开发文档" class="headerlink" title="开发文档"></a>开发文档</h3><ul>
-<li><a href="./writing.html">系统架构</a></li>
-<li><a href="./writing.html">滤波器 Filter</a></li>
-<li><a href="./writing.html">整体操作 Simple</a></li>
-<li><a href="./writing.html">自由插件 Free</a></li>
-<li><a href="./writing.html">批处理 Macros</a></li>
-<li><a href="./writing.html">交互工具 Tool</a></li>
+<h2 id="多图运算"><a href="#多图运算" class="headerlink" title="多图运算"></a>多图运算</h2><ul>
+<li><h3 id="Process-gt-Image-Calculator"><a href="#Process-gt-Image-Calculator" class="headerlink" title="Process &gt; Image Calculator"></a>Process &gt; Image Calculator</h3>进行多图之间的运算，支持两附图之间对应像素进行加法，减法，最大，最小，差异运算。</li>
 </ul>
+<p><img src="http://home.imagepy.org/manual/multimath.png" alt="" title="多图之间运算"></p>
 	  
 	</div>
 

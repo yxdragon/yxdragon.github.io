@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ImagePy 文档 | ImagePy</title>
+  <title>直方图调整 | ImagePy</title>
   <meta name="author" content="yxdragon">
   
-  <meta name="description" content="ImagePy Documents.">
+  <meta name="description" content="开源图像处理框架">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="ImagePy 文档"/>
+  <meta property="og:title" content="直方图调整"/>
   <meta property="og:site_name" content="ImagePy"/>
 
   
@@ -95,7 +95,7 @@
     	 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> ImagePy 文档</h1>
+			<h1 class="title title-inverse "> 直方图调整</h1>
 		</div>		
 	
 
@@ -112,37 +112,24 @@
 
 	<!-- content -->
 	<div class="mypage">		
-	  
-		 <div class="alert alert-success description">
-			<i class="fa fa-info-circle"></i> <p>ImagePy Documents.</p>
-			
-		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="ImagePy-v1-0"><a href="#ImagePy-v1-0" class="headerlink" title="ImagePy v1.0"></a>ImagePy v1.0</h1><p>GitHub: <a href="https://github.com/yxdragon/imagepy.git" target="_blank" rel="external">https://github.com/yxdragon/imagepy.git</a><br>Python 开源图像处理框架，轻量级，高弹性设计</p>
-<h2 id="ImagePy-文档"><a href="#ImagePy-文档" class="headerlink" title="ImagePy 文档"></a>ImagePy 文档</h2><h3 id="操作手册"><a href="#操作手册" class="headerlink" title="操作手册"></a>操作手册</h3><ul>
-<li><a href="./manual/view.html">界面构成</a></li>
-<li><a href="./manual/conception.html">相关概念</a></li>
-<li><a href="./manual/open.html">打开图像</a></li>
-<li><a href="./manual/tools.html">常用工具</a></li>
-<li><a href="./manual/histogram.html">直方图调整</a></li>
-<li><a href="./manual/math.html">数学运算</a></li>
-<li><a href="./manual/filter.html">滤波器</a></li>
-<li><a href="./writing.html">图像变换</a></li>
-<li><a href="./writing.html">形态学</a></li>
-<li><a href="./writing.html">选区运算</a></li>
-<li><a href="./writing.html">标记和像素统计</a></li>
-<li><a href="./writing.html">录制宏</a></li>
+	  <h2 id="直方图"><a href="#直方图" class="headerlink" title="直方图"></a>直方图</h2><p>直方图是对图像内的像素进行频率统计而绘制出来的，他体现了图像的像素值的统计分布，属于全局特征，也称之为色阶。</p>
+<ul>
+<li><h3 id="Image-gt-Grey-Stairs"><a href="#Image-gt-Grey-Stairs" class="headerlink" title="Image &gt; Grey Stairs"></a>Image &gt; Grey Stairs</h3>色阶调整</li>
 </ul>
-<h3 id="开发文档"><a href="#开发文档" class="headerlink" title="开发文档"></a>开发文档</h3><ul>
-<li><a href="./writing.html">系统架构</a></li>
-<li><a href="./writing.html">滤波器 Filter</a></li>
-<li><a href="./writing.html">整体操作 Simple</a></li>
-<li><a href="./writing.html">自由插件 Free</a></li>
-<li><a href="./writing.html">批处理 Macros</a></li>
-<li><a href="./writing.html">交互工具 Tool</a></li>
+<p><img src="http://home.imagepy.org/manual/stairs.png" alt="" title="色阶调整"></p>
+<ul>
+<li><h3 id="Image-gt-Bright-amp-Constract"><a href="#Image-gt-Bright-amp-Constract" class="headerlink" title="Image &gt; Bright &amp; Constract"></a>Image &gt; Bright &amp; Constract</h3>亮度对比度</li>
 </ul>
-	  
+<p><img src="http://home.imagepy.org/manual/bandc.png" alt="" title="亮度对比度"></p>
+<ul>
+<li><h3 id="Image-gt-Threshold"><a href="#Image-gt-Threshold" class="headerlink" title="Image &gt; Threshold"></a>Image &gt; Threshold</h3>阈值调整，一种非此即彼的映射，等价于对比度的极限调整。</li>
+<li><h3 id="Image-gt-Color-Balance"><a href="#Image-gt-Color-Balance" class="headerlink" title="Image &gt; Color Balance"></a>Image &gt; Color Balance</h3>色彩平衡（只对彩色图像有效，可以理解成依次调整各通道的亮度，对比度）</li>
+<li><h3 id="Image-gt-Color-Stairs"><a href="#Image-gt-Color-Stairs" class="headerlink" title="Image &gt; Color Stairs"></a>Image &gt; Color Stairs</h3>彩色色阶（只对彩色图像有效，可以理解成依次调整各通道的色阶）</li>
+</ul>
+<p><img src="http://home.imagepy.org/manual/colorbalance.png" alt="" title="选区演示"></p>
+<h4 id="注：所有的直方图调整，实质相当与对原图的像素值做一个-y-kx-b-的运算，通过一个线性变换，映射到一个新值的过程。"><a href="#注：所有的直方图调整，实质相当与对原图的像素值做一个-y-kx-b-的运算，通过一个线性变换，映射到一个新值的过程。" class="headerlink" title="注：所有的直方图调整，实质相当与对原图的像素值做一个 y = kx + b 的运算，通过一个线性变换，映射到一个新值的过程。"></a>注：所有的直方图调整，实质相当与对原图的像素值做一个 y = kx + b 的运算，通过一个线性变换，映射到一个新值的过程。</h4>	  
 	</div>
 
 	<div>

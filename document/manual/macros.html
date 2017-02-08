@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>宏录制 | ImagePy</title>
+  <meta name="author" content="yxdragon">
+  
+  <meta name="description" content="开源图像处理框架">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="宏录制"/>
+  <meta property="og:site_name" content="ImagePy"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">ImagePy</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/document" title="test">
+			  <i class="fa fa-book"></i>Document
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> 宏录制</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h2 id="宏"><a href="#宏" class="headerlink" title="宏"></a>宏</h2><p><strong>至此我们结合 ImagePy 讨论了图像处理方面的绝大多数基础内容，涵盖了图像的基础概念，直方图，数学运算，滤波器，形态学，几何变换，以及像素统计分析。接下来，我们结合一个具体案例，来看看 ImagePy 能做哪些实际工作，同时介绍宏的概念。</strong></p>
+<h2 id="一个细胞计数的例子"><a href="#一个细胞计数的例子" class="headerlink" title="一个细胞计数的例子"></a>一个细胞计数的例子</h2><p>细胞技术是医学和生物学研究中经常面对的问题，我们需要计算细胞不同时刻的数量，来估算其分裂速度。当我们在显微镜下获取了细胞的影像。传统的人工计数工作繁琐，且容易出错，本节我们将带大家用 ImagePy 来做细胞计数，这其中用到的一些方法，都是前面讨论过的。</p>
+<ul>
+<li><h3 id="图像增强"><a href="#图像增强" class="headerlink" title="图像增强"></a>图像增强</h3>图像中细胞比背景暗，但是如果直接进行阈值分割，无法得到纯净的细胞，因此要先对图像做一些预处理。首先用高斯模糊抑制噪声，然后用大尺度USM滤波器增强对比。</li>
+</ul>
+<p><img src="http://home.imagepy.org/manual/cellpre.png" alt="" title="预处理"></p>
+<ul>
+<li><h3 id="阈值分割-标记，统计"><a href="#阈值分割-标记，统计" class="headerlink" title="阈值分割,标记，统计"></a>阈值分割,标记，统计</h3>经过预处理，图像可以用阈值分割得到较为理想的二值图像。不过背景是白色，前景是黑色，因此我们要对图像进行一次求反。进而进行区域标记，并统计像素分布。</li>
+</ul>
+<p><img src="http://home.imagepy.org/manual/celllabel.png" alt="" title="标记"></p>
+<blockquote>
+<p><strong>经过阈值分割，每个碎片代表一个细胞，而区域标记后，每个细胞则由唯一颜色构成，此时像素统计的条目，就是细胞总数（去除背景），而求和，就是细胞的面积。那么问题来了，如果我有多个类似的图片需要处理，是否需要反复进行以上操作呢？这的确很繁琐，好在有宏可以帮助我们</strong></p>
+</blockquote>
+<h2 id="录制宏"><a href="#录制宏" class="headerlink" title="录制宏"></a>录制宏</h2><p><strong>所谓宏就是 ImagePy 预定义好的功能，我们可以经过简单的操作，重组这些功能，并且在需要的时候依次执行。</strong></p>
+<ul>
+<li><h3 id="Plugins-gt-Macros-gt-Recoder"><a href="#Plugins-gt-Macros-gt-Recoder" class="headerlink" title="Plugins &gt; Macros &gt; Recoder"></a>Plugins &gt; Macros &gt; Recoder</h3><p>打开宏录制器，我们重新操作细胞计数，我们会发现，每进行一项操作，录制器里面就会多出一行记录，比如我们进行了一个 sigma=5 的高斯模糊，则录制器里出现了 Gaussian &gt; {sigma:5.0}，不难看出，所谓宏命令，其实就是记录了所执行的命令名称以及其参数，在必要的时候，再次执行而已。</p>
+</li>
+<li><h3 id="执行与保存宏"><a href="#执行与保存宏" class="headerlink" title="执行与保存宏"></a>执行与保存宏</h3><p>当一切执行完毕，我们得到了如下命令记录。我们可以在录制器中按 F5 执行全部命令，也可以用鼠标选中其中若干行，按 F6 执行选中的行。当然，如果仅仅是这样，我们下次重启时，就由丢失了，所以我们可以保存他，这里我们保存在项目下 Mens &gt; Plugins 目录下，存储为 Cell_Count.mc。</p>
+</li>
+</ul>
+<p><img src="http://home.imagepy.org/manual/recordmacros.png" alt="" title="录制宏"></p>
+<ul>
+<li><h3 id="Plugins-gt-Cell-Count"><a href="#Plugins-gt-Cell-Count" class="headerlink" title="Plugins &gt; Cell_Count"></a>Plugins &gt; Cell_Count</h3>我们重新启动 ImagePy，看看发生了什么。我们刚才保存的宏文件被映射成了一个菜单项！打开细胞图片，运行该菜单项，直接得到了标记和分析结果！是不是很激动。</li>
+</ul>
+<p><img src="http://home.imagepy.org/manual/runmacros.png" alt="" title="运行宏"></p>
+<ul>
+<li><h3 id="能否放到工具栏上？"><a href="#能否放到工具栏上？" class="headerlink" title="能否放到工具栏上？"></a>能否放到工具栏上？</h3>我们把 Cell_Count.mc 拷贝到项目下 Tools &gt; Transform 目录下，并准备一个 16x16 的名字为 Cell_Count.mc.gif 的图标，重启，就完成了。看看效果吧！(点击之后效果相同，并且这种方法也可以给任何一个菜单想做快捷按钮)</li>
+</ul>
+<p><img src="http://home.imagepy.org/manual/celltool.png" alt="" title="宏工具"></p>
+<p><strong>宏为我们提供了一种高效的批处理方式，事实上我们可以把宏放在 Menus 目录下或其任意子目录下，重启时将会映射到对应的菜单项。如果需要调整菜单顺序，可以修改对应文件夹下的 <strong>init</strong>.py 文件，文件内定义了菜单目录顺序。</strong></p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+	
+	<!-- comment -->
+	
+	</div> <!-- col-md-9/col-md-12 -->
+		
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 yxdragon
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+   </html>

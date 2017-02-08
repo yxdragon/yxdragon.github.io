@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ImagePy 文档 | ImagePy</title>
+  <title>标记与像素统计 | ImagePy</title>
   <meta name="author" content="yxdragon">
   
-  <meta name="description" content="ImagePy Documents.">
+  <meta name="description" content="开源图像处理框架">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="ImagePy 文档"/>
+  <meta property="og:title" content="标记与像素统计"/>
   <meta property="og:site_name" content="ImagePy"/>
 
   
@@ -95,7 +95,7 @@
     	 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> ImagePy 文档</h1>
+			<h1 class="title title-inverse "> 标记与像素统计</h1>
 		</div>		
 	
 
@@ -112,36 +112,33 @@
 
 	<!-- content -->
 	<div class="mypage">		
-	  
-		 <div class="alert alert-success description">
-			<i class="fa fa-info-circle"></i> <p>ImagePy Documents.</p>
-			
-		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="ImagePy-v1-0"><a href="#ImagePy-v1-0" class="headerlink" title="ImagePy v1.0"></a>ImagePy v1.0</h1><p>GitHub: <a href="https://github.com/yxdragon/imagepy.git" target="_blank" rel="external">https://github.com/yxdragon/imagepy.git</a><br>Python 开源图像处理框架，轻量级，高弹性设计</p>
-<h2 id="ImagePy-文档"><a href="#ImagePy-文档" class="headerlink" title="ImagePy 文档"></a>ImagePy 文档</h2><h3 id="操作手册"><a href="#操作手册" class="headerlink" title="操作手册"></a>操作手册</h3><ul>
-<li><a href="./manual/view.html">界面构成</a></li>
-<li><a href="./manual/conception.html">相关概念</a></li>
-<li><a href="./manual/open.html">打开图像</a></li>
-<li><a href="./manual/tools.html">常用工具</a></li>
-<li><a href="./manual/histogram.html">直方图调整</a></li>
-<li><a href="./manual/math.html">数学运算</a></li>
-<li><a href="./manual/filter.html">滤波器</a></li>
-<li><a href="./manual/shapely.html">形态学</a></li>
-<li><a href="./manual/transform.html">几何变换</a></li>
-<li><a href="./manual/roi.html">选区运算</a></li>
-<li><a href="./manual/label.html">标记和像素统计</a></li>
-<li><a href="./manual/macros.html">录制宏</a></li>
-<li><a href="./manual/extend.html">功能扩展</a></li>
+	  <p><strong>本节的操作多数与统计相关，结果往往是一张表格，ImagePy 中的表格以独立窗口形式体现，可以另存为Excel。</strong></p>
+<h2 id="区域标记"><a href="#区域标记" class="headerlink" title="区域标记"></a>区域标记</h2><p>针对二值图像，像素形成联通的区域，所谓区域标记，就是给每个区域标记成一个唯一的颜色。</p>
+<ul>
+<li><h3 id="Analysis-gt-Label-Image"><a href="#Analysis-gt-Label-Image" class="headerlink" title="Analysis &gt; Label Image"></a>Analysis &gt; Label Image</h3></li>
 </ul>
-<h3 id="开发文档"><a href="#开发文档" class="headerlink" title="开发文档"></a>开发文档</h3><ul>
-<li><a href="./writing.html">系统架构</a></li>
-<li><a href="./writing.html">滤波器 Filter</a></li>
-<li><a href="./writing.html">整体操作 Simple</a></li>
-<li><a href="./writing.html">自由插件 Free</a></li>
-<li><a href="./writing.html">批处理 Macros</a></li>
-<li><a href="./writing.html">交互工具 Tool</a></li>
+<p><img src="http://home.imagepy.org/manual/label.png" alt="" title="图像标记"></p>
+<h2 id="像素统计"><a href="#像素统计" class="headerlink" title="像素统计"></a>像素统计</h2><p>对图像中的点进行频率统计并制成表格展示，对于一张经过区域标记的图像来说，其统计结果也意味着每个区域的面积。</p>
+<ul>
+<li><h3 id="Analysis-gt-Histogram"><a href="#Analysis-gt-Histogram" class="headerlink" title="Analysis &gt; Histogram"></a>Analysis &gt; Histogram</h3></li>
+</ul>
+<p><img src="http://home.imagepy.org/manual/histsta.png" alt="" title="像素统计"></p>
+<h2 id="碎片分析"><a href="#碎片分析" class="headerlink" title="碎片分析"></a>碎片分析</h2><ul>
+<li><h3 id="Analysis-gt-Segment-gt-Statistic"><a href="#Analysis-gt-Segment-gt-Statistic" class="headerlink" title="Analysis &gt; Segment &gt; Statistic"></a>Analysis &gt; Segment &gt; Statistic</h3><p>统计每个碎片内部的像素最大值，最小值，方差等信息</p>
+</li>
+<li><h3 id="Analysis-gt-Segment-gt-Position"><a href="#Analysis-gt-Segment-gt-Position" class="headerlink" title="Analysis &gt; Segment &gt; Position"></a>Analysis &gt; Segment &gt; Position</h3><p>统计每个碎片的质心，外接矩形等位置信息</p>
+</li>
+<li><h3 id="Analysis-gt-Segment-gt-Mark-Point"><a href="#Analysis-gt-Segment-gt-Mark-Point" class="headerlink" title="Analysis &gt; Segment &gt; Mark Point"></a>Analysis &gt; Segment &gt; Mark Point</h3><p>计算并绘制每个碎片的质心</p>
+</li>
+</ul>
+<p><img src="http://home.imagepy.org/manual/segment.png" alt="" title="碎片分析"></p>
+<ul>
+<li><h3 id="Analysis-gt-Tables-gt-Save-As-CSV"><a href="#Analysis-gt-Tables-gt-Save-As-CSV" class="headerlink" title="Analysis &gt; Tables &gt; Save As CSV"></a>Analysis &gt; Tables &gt; Save As CSV</h3><p>将表格另存为Excel兼容的CSV文本格式</p>
+</li>
+<li><h3 id="Analysis-gt-Tables-gt-Save-As-Tab"><a href="#Analysis-gt-Tables-gt-Save-As-Tab" class="headerlink" title="Analysis &gt; Tables &gt; Save As Tab"></a>Analysis &gt; Tables &gt; Save As Tab</h3><p>将表格另存为Excel兼容的Tab制表符格式</p>
+</li>
 </ul>
 	  
 	</div>

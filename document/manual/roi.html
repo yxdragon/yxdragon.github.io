@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ImagePy 文档 | ImagePy</title>
+  <title>选区运算 | ImagePy</title>
   <meta name="author" content="yxdragon">
   
-  <meta name="description" content="ImagePy Documents.">
+  <meta name="description" content="开源图像处理框架">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="ImagePy 文档"/>
+  <meta property="og:title" content="选区运算"/>
   <meta property="og:site_name" content="ImagePy"/>
 
   
@@ -95,7 +95,7 @@
     	 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> ImagePy 文档</h1>
+			<h1 class="title title-inverse "> 选区运算</h1>
 		</div>		
 	
 
@@ -112,36 +112,29 @@
 
 	<!-- content -->
 	<div class="mypage">		
-	  
-		 <div class="alert alert-success description">
-			<i class="fa fa-info-circle"></i> <p>ImagePy Documents.</p>
-			
-		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="ImagePy-v1-0"><a href="#ImagePy-v1-0" class="headerlink" title="ImagePy v1.0"></a>ImagePy v1.0</h1><p>GitHub: <a href="https://github.com/yxdragon/imagepy.git" target="_blank" rel="external">https://github.com/yxdragon/imagepy.git</a><br>Python 开源图像处理框架，轻量级，高弹性设计</p>
-<h2 id="ImagePy-文档"><a href="#ImagePy-文档" class="headerlink" title="ImagePy 文档"></a>ImagePy 文档</h2><h3 id="操作手册"><a href="#操作手册" class="headerlink" title="操作手册"></a>操作手册</h3><ul>
-<li><a href="./manual/view.html">界面构成</a></li>
-<li><a href="./manual/conception.html">相关概念</a></li>
-<li><a href="./manual/open.html">打开图像</a></li>
-<li><a href="./manual/tools.html">常用工具</a></li>
-<li><a href="./manual/histogram.html">直方图调整</a></li>
-<li><a href="./manual/math.html">数学运算</a></li>
-<li><a href="./manual/filter.html">滤波器</a></li>
-<li><a href="./manual/shapely.html">形态学</a></li>
-<li><a href="./manual/transform.html">几何变换</a></li>
-<li><a href="./manual/roi.html">选区运算</a></li>
-<li><a href="./manual/label.html">标记和像素统计</a></li>
-<li><a href="./manual/macros.html">录制宏</a></li>
-<li><a href="./manual/extend.html">功能扩展</a></li>
+	  <h2 id="选区运算"><a href="#选区运算" class="headerlink" title="选区运算"></a>选区运算</h2><p>我们在开始介绍过<a href="./conception.html#选区" title="选区概念">选区</a>的概念，并且在<a href="./tools.html#选取类" title="选取操作">常用工具</a>中专门讨论过选取相关的操作，这里我们从运算层面上介绍选区。<br><strong>ImagePy 选区操作暂时不支持撤销</strong></p>
+<p>这里演示几个点选区，然后进行膨胀运算，变成了圆形面选区，再做凸包运算，成为一个凸多边形选区。<br><img src="http://home.imagepy.org/manual/roipoint.png" alt="" title="形态学运算"></p>
+<ul>
+<li><h3 id="Selection-gt-All"><a href="#Selection-gt-All" class="headerlink" title="Selection &gt; All"></a>Selection &gt; All</h3>选取全部</li>
+<li><h3 id="Selection-gt-None"><a href="#Selection-gt-None" class="headerlink" title="Selection &gt; None"></a>Selection &gt; None</h3>取消选区</li>
 </ul>
-<h3 id="开发文档"><a href="#开发文档" class="headerlink" title="开发文档"></a>开发文档</h3><ul>
-<li><a href="./writing.html">系统架构</a></li>
-<li><a href="./writing.html">滤波器 Filter</a></li>
-<li><a href="./writing.html">整体操作 Simple</a></li>
-<li><a href="./writing.html">自由插件 Free</a></li>
-<li><a href="./writing.html">批处理 Macros</a></li>
-<li><a href="./writing.html">交互工具 Tool</a></li>
+<p>这里用自由多段线工具绘制 IPY 字样，然后进行膨胀，成为空心，再用 Shift + 矩形工具，叠加一个下划线。<br><img src="http://home.imagepy.org/manual/roiipy.png" alt="" title="形态学运算"></p>
+<ul>
+<li><h3 id="Selection-gt-Inflate"><a href="#Selection-gt-Inflate" class="headerlink" title="Selection &gt; Inflate"></a>Selection &gt; Inflate</h3>选区膨胀 （Buffer运算）</li>
+<li><h3 id="Selection-gt-Shrink"><a href="#Selection-gt-Shrink" class="headerlink" title="Selection &gt; Shrink"></a>Selection &gt; Shrink</h3>选区收缩</li>
+<li><h3 id="Selection-gt-Convex-Hull"><a href="#Selection-gt-Convex-Hull" class="headerlink" title="Selection &gt; Convex Hull"></a>Selection &gt; Convex Hull</h3>凸包运算</li>
+<li><h3 id="Selection-gt-Bound-Box"><a href="#Selection-gt-Bound-Box" class="headerlink" title="Selection &gt; Bound Box"></a>Selection &gt; Bound Box</h3>最小外接矩形</li>
+<li><h3 id="Selection-gt-Clip"><a href="#Selection-gt-Clip" class="headerlink" title="Selection &gt; Clip"></a>Selection &gt; Clip</h3>去除图像以外的选区</li>
+<li><h3 id="Selection-gt-Invert"><a href="#Selection-gt-Invert" class="headerlink" title="Selection &gt; Invert"></a>Selection &gt; Invert</h3>选区取反</li>
+</ul>
+<p>将刚才得到的 IPY 添加到选区管理器，然后重新切换到第一幅图，从管理器以Difference方式导入 IPY，并填充。<br><img src="http://home.imagepy.org/manual/roidiff.png" alt="" title="形态学运算"></p>
+<ul>
+<li><h3 id="Selection-gt-Add-To-Manager"><a href="#Selection-gt-Add-To-Manager" class="headerlink" title="Selection &gt; Add To Manager"></a>Selection &gt; Add To Manager</h3>将选区加入到选区管理器</li>
+<li><h3 id="Selection-gt-Load-From-Manager"><a href="#Selection-gt-Load-From-Manager" class="headerlink" title="Selection &gt; Load From Manager"></a>Selection &gt; Load From Manager</h3>从选区管理器加载到当前图像</li>
+<li><h3 id="Selection-gt-Union"><a href="#Selection-gt-Union" class="headerlink" title="Selection &gt; Union"></a>Selection &gt; Union</h3>从选区管理器加载，并叠加到当前选区</li>
+<li><h3 id="Selection-gt-Differance"><a href="#Selection-gt-Differance" class="headerlink" title="Selection &gt; Differance"></a>Selection &gt; Differance</h3>从选取管理器加载，并镂空在当前选区</li>
 </ul>
 	  
 	</div>

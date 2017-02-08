@@ -1,0 +1,204 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>扩展开发 | ImagePy</title>
+  <meta name="author" content="yxdragon">
+  
+  <meta name="description" content="开源图像处理框架">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="扩展开发"/>
+  <meta property="og:site_name" content="ImagePy"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">ImagePy</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/document" title="test">
+			  <i class="fa fa-book"></i>Document
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> 扩展开发</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h2 id="扩展开发"><a href="#扩展开发" class="headerlink" title="扩展开发"></a>扩展开发</h2><ul>
+<li><h3 id="ImagePy-是什么"><a href="#ImagePy-是什么" class="headerlink" title="ImagePy 是什么"></a>ImagePy 是什么</h3><p>ImagePy 不只是一款图像处理软件，更是一个超轻量级，高扩展性的插件式图像处理框架。框架基于 Python 实现，图像数据基于 Numpy，任何基于 Numpy 的算法库，都可以轻松接入，同时 ImagePy 为其提供有好交互环境，包括对话框，图像预览，撤销支持，选区支持，多通道支持和图像栈支持等…</p>
+</li>
+<li><h3 id="为什么选择-Python"><a href="#为什么选择-Python" class="headerlink" title="为什么选择 Python"></a>为什么选择 Python</h3><p>Python语言近年来持续升温，在这里，它有如下优势</p>
+</li>
+</ul>
+<ol>
+<li>语法简洁，易学，开发环境搭建简单。</li>
+<li>语言灵活性高，编程更方便</li>
+<li>有大量的第三方类库支持，图像方面有 scipy, scikit-image, opencv等。</li>
+<li>大多数科学计算库都是基于 Numpy 的，这让设计统一框架变得容易。</li>
+</ol>
+<p><strong>拿来主义可以说是 ImagePy 的设计精髓，scikit-image， opencv 等鼎鼎大名的开源图像处理库，尽为我所用，并且是轻松无缝结合。同样你也可以轻松的扩展一个工具，由于更深入的内容与操作手册的主旨无关，关于扩展开发，我将在<a href="../#开发文档">开发文档</a>中展开介绍，这里仅仅是一个初步认识，下面就以scikit-image的一个Canny算子为例，施展吸星大法。同时也结束操作手册的文档编写。</strong></p>
+<h2 id="接入Canny算子的例子"><a href="#接入Canny算子的例子" class="headerlink" title="接入Canny算子的例子"></a>接入Canny算子的例子</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: utf-8 -*</span></div><div class="line"><span class="keyword">from</span> skimage <span class="keyword">import</span> feature</div><div class="line"><span class="keyword">from</span> core.engines <span class="keyword">import</span> Filter</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Plugin</span><span class="params">(Filter)</span>:</span></div><div class="line">    title = <span class="string">'Canny'</span></div><div class="line">    note = [<span class="string">'all'</span>, <span class="string">'auto_msk'</span>, <span class="string">'auto_snap'</span>, <span class="string">'preview'</span>]</div><div class="line">    </div><div class="line">    para = &#123;<span class="string">'sigma'</span>:<span class="number">1.0</span>, <span class="string">'low_threshold'</span>:<span class="number">10</span>, <span class="string">'high_threshold'</span>:<span class="number">20</span>&#125;</div><div class="line">    </div><div class="line">    <span class="comment">#parameter</span></div><div class="line">    view = [(float, (<span class="number">0</span>,<span class="number">10</span>), <span class="number">1</span>,  <span class="string">'sigma'</span>, <span class="string">'sigma'</span>, <span class="string">'pix'</span>),</div><div class="line">            (<span class="string">'slide'</span>,(<span class="number">0</span>,<span class="number">30</span>), <span class="string">'low_threshold'</span>, <span class="string">'low_threshold'</span>,<span class="string">''</span>),</div><div class="line">            (<span class="string">'slide'</span>,(<span class="number">0</span>,<span class="number">30</span>), <span class="string">'high_threshold'</span>, <span class="string">'high_threshold'</span>,<span class="string">''</span>)]</div><div class="line"></div><div class="line">    <span class="comment">#process</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self, ips, snap, img, para = None)</span>:</span></div><div class="line">        <span class="keyword">return</span> feature.canny(snap, sigma=para[<span class="string">'sigma'</span>], low_threshold=para[</div><div class="line">            <span class="string">'low_threshold'</span>], high_threshold=para[<span class="string">'high_threshold'</span>], mask=ips.get_msk())*<span class="number">255</span></div></pre></td></tr></table></figure>
+<ul>
+<li><h3 id="1-引入核心类库，引入-Filter"><a href="#1-引入核心类库，引入-Filter" class="headerlink" title="1. 引入核心类库，引入 Filter"></a>1. 引入核心类库，引入 Filter</h3>Filter是滤波器积累，核心类库是准备接入的核心函数。</li>
+<li><h3 id="2-继承-Filter"><a href="#2-继承-Filter" class="headerlink" title="2. 继承 Filter"></a>2. 继承 Filter</h3>所有滤波器的基类，集成之后自动获得了很多交互功能。</li>
+<li><h3 id="3-设定-Title"><a href="#3-设定-Title" class="headerlink" title="3. 设定 Title"></a>3. 设定 Title</h3>这将是菜单栏上展示的内容</li>
+<li><h3 id="4-设定-Note"><a href="#4-设定-Note" class="headerlink" title="4. 设定 Note"></a>4. 设定 Note</h3>这告诉ImagePy需要帮你做哪些前期和后期工作，比如对选区的支持，对图像栈的支持等。</li>
+<li><h3 id="5-设定-Para"><a href="#5-设定-Para" class="headerlink" title="5. 设定 Para"></a>5. 设定 Para</h3>核心函数需要用到的参数</li>
+<li><h3 id="6-设定-view"><a href="#6-设定-view" class="headerlink" title="6. 设定 view"></a>6. 设定 view</h3>插件执行时的交互方式（与参数对应，只需要指明参数类型，取值范围等信息即可）</li>
+<li><h3 id="7-核心函数，run"><a href="#7-核心函数，run" class="headerlink" title="7. 核心函数，run"></a>7. 核心函数，run</h3>这一步仅仅是调用核心函数，snap是缓存图像，img是前景图，para是通过对话框交互得到的参数。你要做的仅仅是把snap的值经过作用，赋予img。<h4 id="OK，一个插件就写好了，我们试一下效果："><a href="#OK，一个插件就写好了，我们试一下效果：" class="headerlink" title="OK，一个插件就写好了，我们试一下效果："></a>OK，一个插件就写好了，我们试一下效果：</h4></li>
+</ul>
+<p><img src="http://home.imagepy.org/manual/canny.png" alt="" title="边缘算子"></p>
+<p>可以看到，短短12行代码，就接入了一个非常酷的边缘提取功能，是不是很令人兴奋！</p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+	
+	<!-- comment -->
+	
+	</div> <!-- col-md-9/col-md-12 -->
+		
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 yxdragon
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+   </html>

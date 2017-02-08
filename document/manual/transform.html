@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ImagePy 文档 | ImagePy</title>
+  <title>几何变换 | ImagePy</title>
   <meta name="author" content="yxdragon">
   
-  <meta name="description" content="ImagePy Documents.">
+  <meta name="description" content="开源图像处理框架">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="ImagePy 文档"/>
+  <meta property="og:title" content="几何变换"/>
   <meta property="og:site_name" content="ImagePy"/>
 
   
@@ -95,7 +95,7 @@
     	 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> ImagePy 文档</h1>
+			<h1 class="title title-inverse "> 几何变换</h1>
 		</div>		
 	
 
@@ -112,36 +112,13 @@
 
 	<!-- content -->
 	<div class="mypage">		
-	  
-		 <div class="alert alert-success description">
-			<i class="fa fa-info-circle"></i> <p>ImagePy Documents.</p>
-			
-		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="ImagePy-v1-0"><a href="#ImagePy-v1-0" class="headerlink" title="ImagePy v1.0"></a>ImagePy v1.0</h1><p>GitHub: <a href="https://github.com/yxdragon/imagepy.git" target="_blank" rel="external">https://github.com/yxdragon/imagepy.git</a><br>Python 开源图像处理框架，轻量级，高弹性设计</p>
-<h2 id="ImagePy-文档"><a href="#ImagePy-文档" class="headerlink" title="ImagePy 文档"></a>ImagePy 文档</h2><h3 id="操作手册"><a href="#操作手册" class="headerlink" title="操作手册"></a>操作手册</h3><ul>
-<li><a href="./manual/view.html">界面构成</a></li>
-<li><a href="./manual/conception.html">相关概念</a></li>
-<li><a href="./manual/open.html">打开图像</a></li>
-<li><a href="./manual/tools.html">常用工具</a></li>
-<li><a href="./manual/histogram.html">直方图调整</a></li>
-<li><a href="./manual/math.html">数学运算</a></li>
-<li><a href="./manual/filter.html">滤波器</a></li>
-<li><a href="./manual/shapely.html">形态学</a></li>
-<li><a href="./manual/transform.html">几何变换</a></li>
-<li><a href="./manual/roi.html">选区运算</a></li>
-<li><a href="./manual/label.html">标记和像素统计</a></li>
-<li><a href="./manual/macros.html">录制宏</a></li>
-<li><a href="./manual/extend.html">功能扩展</a></li>
-</ul>
-<h3 id="开发文档"><a href="#开发文档" class="headerlink" title="开发文档"></a>开发文档</h3><ul>
-<li><a href="./writing.html">系统架构</a></li>
-<li><a href="./writing.html">滤波器 Filter</a></li>
-<li><a href="./writing.html">整体操作 Simple</a></li>
-<li><a href="./writing.html">自由插件 Free</a></li>
-<li><a href="./writing.html">批处理 Macros</a></li>
-<li><a href="./writing.html">交互工具 Tool</a></li>
+	  <h2 id="几何变换"><a href="#几何变换" class="headerlink" title="几何变换"></a>几何变换</h2><p>直方图，数学运算，滤波器，形态学概括来说，新的值都是由原图对应位置或区域的内容决定的，而本节我们讨论的几何变换，是一个位置关系之间的映射。<br><strong>ImagePy 中所有的几何变换都支持图像预览和撤销操作，如果有选区在图像上，则自动只处理选取内的像素，在处理图像栈的时候，会询问是否进行批量处理。此外由于这种变换操作性较强，因而专门设计了两款工具。</strong></p>
+<p><img src="./trans2.png" alt="" title="形态学运算"></p>
+<ul>
+<li><h3 id="Image-gt-Transform-gt-Rotate"><a href="#Image-gt-Transform-gt-Rotate" class="headerlink" title="Image &gt; Transform &gt; Rotate"></a>Image &gt; Transform &gt; Rotate</h3>对图像进行一定角度的旋转</li>
+<li><h3 id="Image-gt-Transform-gt-Scale"><a href="#Image-gt-Transform-gt-Scale" class="headerlink" title="Image &gt; Transform &gt; Scale"></a>Image &gt; Transform &gt; Scale</h3>对图像进行一定尺度的缩放<br><strong>另外专门有两款<a href="./tools.html#变换类" title="形态学运算">工具</a>，用于交互式的进行几何变换</strong></li>
 </ul>
 	  
 	</div>

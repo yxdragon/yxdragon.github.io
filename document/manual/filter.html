@@ -115,7 +115,8 @@
 	  		
 
 	  <h2 id="滤波器"><a href="#滤波器" class="headerlink" title="滤波器"></a>滤波器</h2><p>前面两节的直方图调整和数学运算有个共同点，就是新图像的像素由原图相同位置的像素经过一个数学运算得到，某种意义上，直方图调整可以看作是数学运算的一个子集，而这里我们讨论的滤波器运算，新图像的像素不仅由原图相同位置的像素决定，而且和与之邻近的一些像素有关。</p>
-<h4 id="ImagePy-中绝大多数的滤波器（除了一些三维的）都支持图像预览和撤销操作，如果滤波器有参数输入会提供一个友好的交互对话框。"><a href="#ImagePy-中绝大多数的滤波器（除了一些三维的）都支持图像预览和撤销操作，如果滤波器有参数输入会提供一个友好的交互对话框。" class="headerlink" title="ImagePy 中绝大多数的滤波器（除了一些三维的）都支持图像预览和撤销操作，如果滤波器有参数输入会提供一个友好的交互对话框。"></a>ImagePy 中绝大多数的滤波器（除了一些三维的）都支持图像预览和撤销操作，如果滤波器有参数输入会提供一个友好的交互对话框。</h4><h2 id="经典高通-低通滤波器"><a href="#经典高通-低通滤波器" class="headerlink" title="经典高通-低通滤波器"></a>经典高通-低通滤波器</h2><p><img src="http://home.imagepy.org/manual/gaussfilter.png" alt="" title="经典滤波器"></p>
+<p><strong>ImagePy 中绝大多数的滤波器（除了一些三维的）都支持图像预览和撤销操作，如果滤波器有参数输入会提供一个友好的交互对话框。如果有选区在图像上，则自动只处理选取内的像素，在处理图像栈的时候，会询问是否进行批量处理。</strong></p>
+<h2 id="经典高通-低通滤波器"><a href="#经典高通-低通滤波器" class="headerlink" title="经典高通-低通滤波器"></a>经典高通-低通滤波器</h2><p><img src="http://home.imagepy.org/manual/gaussfilter.png" alt="" title="经典滤波器"></p>
 <ul>
 <li><h3 id="Process-gt-Filter-gt-Gaussian"><a href="#Process-gt-Filter-gt-Gaussian" class="headerlink" title="Process &gt; Filter &gt; Gaussian"></a>Process &gt; Filter &gt; Gaussian</h3>高斯模糊，由一个二维正太分布做滤波核。</li>
 <li><h3 id="Process-gt-Filter-gt-Gaussian-Laplace"><a href="#Process-gt-Filter-gt-Gaussian-Laplace" class="headerlink" title="Process &gt; Filter &gt; Gaussian Laplace"></a>Process &gt; Filter &gt; Gaussian Laplace</h3>高斯-拉普拉斯，由一个墨西哥帽子形的函数做滤波核</li>

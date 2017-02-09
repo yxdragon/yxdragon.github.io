@@ -1,0 +1,208 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>图像类 | ImagePy</title>
+  <meta name="author" content="yxdragon">
+  
+  <meta name="description" content="开源图像处理框架">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="图像类"/>
+  <meta property="og:site_name" content="ImagePy"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">ImagePy</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/document" title="test">
+			  <i class="fa fa-book"></i>Document
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> 图像类</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h2 id="ImagePlus"><a href="#ImagePlus" class="headerlink" title="ImagePlus"></a>ImagePlus</h2><p><strong>ImagePy 采用 Numpy 数组作为图像数据结构，Numpy 非常强大，但是要让它能够支持我们的全部特性（索引色支持，撤销，选区支持，多通道支持，图像栈支持），还需要一些其他的数据给予必要的辅助，因而我们有了ImagePlus类</strong></p>
+<h2 id="结构图"><a href="#结构图" class="headerlink" title="结构图"></a>结构图</h2><p><img src="http://home.imagepy.org/develop/imageplus.png" alt="" title="ImagePlus"><br>我们可以看出，ImagePlus 确切说是一个 Numpy的容器，它装载了若干张图片，一张缓冲图，一个选区，一个掩膜，以及一个标记。</p>
+<ul>
+<li><h3 id="图像序列与当前图像"><a href="#图像序列与当前图像" class="headerlink" title="图像序列与当前图像"></a>图像序列与当前图像</h3>我们知道，ImagePlus 能够存储一系列的图片，然而时刻我们只能展示其中一张，这样就有了游标和当前图像的概念。我们可以获取图像列表，也可以获取当前图像。</li>
+<li><h3 id="look-up-table"><a href="#look-up-table" class="headerlink" title="look up table"></a>look up table</h3><p>索引色是存放在 ImagePlus 中的，如果是单通道图像，那么在图像被绘制在 Canvas 上时，会自动套用索引。</p>
+</li>
+<li><h3 id="snapshot"><a href="#snapshot" class="headerlink" title="snapshot"></a>snapshot</h3><p>ImagePlus 为我们准备了一个缓冲图像，最直观的看，它可以实现一步撤销功能。其实更重要的是，在一些滤波器运算中，我们必须有一张缓冲副本，才能够实施算法。有了snap的存在，可以节省不必要的内存开支，经济高效的完成一些任务。</p>
+</li>
+<li><h3 id="reset"><a href="#reset" class="headerlink" title="reset"></a>reset</h3>帮助我们利用快照恢复当前图像，如果有掩膜存在，则只恢复掩膜内的像素。</li>
+<li><h3 id="swap"><a href="#swap" class="headerlink" title="swap"></a>swap</h3>交换快照与当前图像，这就是ImagePy撤销的实现，由于之缓存了一张，因此多次撤销只能两附图来回切换。</li>
+<li><h3 id="roi-与-mask"><a href="#roi-与-mask" class="headerlink" title="roi 与 mask"></a>roi 与 mask</h3>roi 是通过交互完成的选区，而 mask 则是一张二值的标记图像。（很多时候，ImagePy自动用roi绘制mask）</li>
+<li><h3 id="mark"><a href="#mark" class="headerlink" title="mark"></a>mark</h3>之和显示相关，在图像上展示必要的提示信息。<br><strong>这些额外的信息能够帮助我们完成很多事情，比如 roi&gt;mask + snap + reset选取外的内容，这样就实现了只对选区内的像素做处理的功能。本质上是整副图像都已经处理过，随后利用镜像回复选区以外的内容，看起来就像，之处理了选区内的像素。</strong></li>
+</ul>
+<h2 id="类总览"><a href="#类总览" class="headerlink" title="类总览"></a>类总览</h2><blockquote>
+<h3 id="成员"><a href="#成员" class="headerlink" title="成员"></a>成员</h3><blockquote>
+<p><strong>imgs:</strong>所持有的图像序列，（即便只有一张，也是作为序列）<br>   <strong>imgtype:</strong>图像类型，他们有’8-bit’,’16-bit’,’rgb’,’float’<br>   <strong>title:</strong>图像的标题<br>   <strong>snap:</strong>图像快照<br>   <strong>roi:</strong>与之相关的选区<br>   <strong>mark:</strong>与之相关的标记<br>   <strong>msk:</strong>掩膜（多是由选区自动生成）<br>   <strong>lut:</strong>索引表</p>
+</blockquote>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><blockquote>
+<h4 id="设定属性"><a href="#设定属性" class="headerlink" title="设定属性"></a>设定属性</h4><p>   <strong>set_imgs：</strong>设定图像序列<br>   <strong>set_cur：</strong>设定当前帧<br>   <strong>set_title：</strong>设定图像标题</p>
+<h4 id="获取属性"><a href="#获取属性" class="headerlink" title="获取属性"></a>获取属性</h4><p>   <strong>get_img：</strong>获取当前图像<br>   <strong>get_imgtype：</strong>获取图像类型<br>   <strong>get_nslices：</strong>获取图像列表总数<br>   <strong>get_nchannels：</strong>获取图像通道数<br>   <strong>get_msk：</strong>获取掩膜</p>
+<h4 id="像素辅助操作"><a href="#像素辅助操作" class="headerlink" title="像素辅助操作"></a>像素辅助操作</h4><p>   <strong>snapshot：</strong>对图像进行快照<br>   <strong>reset：</strong>用快照恢复<br>   <strong>swap：</strong>交换快照和前景</p>
+</blockquote>
+</blockquote>
+<h2 id="图像和图像栈"><a href="#图像和图像栈" class="headerlink" title="图像和图像栈"></a>图像和图像栈</h2><p>ImagePlus 的构造是或设定图像时需要传入图像序列 imgs，本质上是一个图像容器，可以装一张，也可以装多张。但是注意有如下区别</p>
+<ul>
+<li><h3 id="单图"><a href="#单图" class="headerlink" title="单图"></a>单图</h3>单图的传入，也需要构造一个序列：[img]</li>
+<li><h3 id="多图"><a href="#多图" class="headerlink" title="多图"></a>多图</h3>对于多图，有两种形式，离散列表和连续栈。<br>1.离散列表 [img1, img2, img3…]<br>2.连续栈 3d/4d Numpy array<br><strong>其中离散列表内存不连续，因而可以随时插入或删除切片，而连续栈在计算机中占据连续内存，这为一些计算提供了方便，但却不能动态的添加或删除切片。</strong></li>
+<li><h3 id="混淆"><a href="#混淆" class="headerlink" title="混淆"></a>混淆</h3>如果现在有一张三通道的彩色图片，注意如下两种构造的区别：<br>1.[rgb] 表示一个离散列表，里面装有一张彩色图像。<br>2.rgb 则表示是一个连续栈，里面装有三张图像。</li>
+</ul>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+	
+	<!-- comment -->
+	
+	</div> <!-- col-md-9/col-md-12 -->
+		
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 yxdragon
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+   </html>

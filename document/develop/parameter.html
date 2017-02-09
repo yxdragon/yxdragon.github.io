@@ -1,0 +1,205 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>参数对话框 | ImagePy</title>
+  <meta name="author" content="yxdragon">
+  
+  <meta name="description" content="开源图像处理框架">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="参数对话框"/>
+  <meta property="og:site_name" content="ImagePy"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">ImagePy</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/document" title="test">
+			  <i class="fa fa-book"></i>Document
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> 参数对话框</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h2 id="ParaDialog"><a href="#ParaDialog" class="headerlink" title="ParaDialog"></a>ParaDialog</h2><p><strong>对于多数做科学计算的程序员来说，界面总是一个不愉快的工作，至少不希望把大部分时间花在界面设计上，而这正式ParaDialog类的设计初衷。ParaDialog采取了数据驱动视图的设计思想，会根据你的数据自动生成交互环境，同时在数据发生变化时，可以进行回调，实时预览。</strong></p>
+<h2 id="类结构"><a href="#类结构" class="headerlink" title="类结构"></a>类结构</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ParaDialog</span> <span class="params">(wx.Dialog)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">( self, parent, title)</span>:</span></div><div class="line">    	...</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">init_view</span><span class="params">(self, items, para, preview=False, modal = True)</span>:</span></div><div class="line">    	...</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">para_check</span><span class="params">(self, para, key)</span>:</span></div><div class="line">    	...</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">para_changed</span><span class="params">(self, key)</span>:</span></div><div class="line">    	...</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">set_handle</span><span class="params">(self, handle)</span>:</span></div><div class="line">    	...</div></pre></td></tr></table></figure>
+<ul>
+<li><h3 id="init-view"><a href="#init-view" class="headerlink" title="init_view:"></a>init_view:</h3>根据 items, para 生成界面，preview 是窗口是否需要添加预览复选框， modal 指明窗口是否为模态对话框。</li>
+<li><h3 id="para-check"><a href="#para-check" class="headerlink" title="para_check:"></a>para_check:</h3>参数改变时调用，key是改变的参数键，检查参数是否合法，如果全部合法返回 True。</li>
+<li><h3 id="para-changed"><a href="#para-changed" class="headerlink" title="para_changed:"></a>para_changed:</h3>参数改变是调用，并且在预览状态下，会自动调用 handle。</li>
+<li><h3 id="set-handle"><a href="#set-handle" class="headerlink" title="set_handle:"></a>set_handle:</h3>设定处理函数，将会在参数改变并打开预览情况下调用。</li>
+</ul>
+<h2 id="参数配置方法"><a href="#参数配置方法" class="headerlink" title="参数配置方法"></a>参数配置方法</h2><h4 id="这里只是介绍类的构成，事实上，你很少需要直接与它打交道。然而下面介绍的内容，是非常重要的。"><a href="#这里只是介绍类的构成，事实上，你很少需要直接与它打交道。然而下面介绍的内容，是非常重要的。" class="headerlink" title="这里只是介绍类的构成，事实上，你很少需要直接与它打交道。然而下面介绍的内容，是非常重要的。"></a>这里只是介绍类的构成，事实上，你很少需要直接与它打交道。然而下面介绍的内容，是非常重要的。</h4><ul>
+<li><h3 id="第一个例子："><a href="#第一个例子：" class="headerlink" title="第一个例子："></a>第一个例子：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">para = &#123;<span class="string">'m'</span>:<span class="number">1</span>&#125;</div><div class="line">view = [(float, (<span class="number">0</span>,<span class="number">150</span>), <span class="number">1</span>, <span class="string">'weight'</span>, <span class="string">'m'</span>, <span class="string">'kg'</span>)]</div><div class="line">IPy.get_para(<span class="string">'Test'</span>, view, para)</div></pre></td></tr></table></figure>
+<p>解释一下：有一个参数 m, 默认值为1，(int, (0,150), 1, ‘weight’, ‘m’, ‘kg’)的意思是说，该参数之一个整数，取值范围在0-150之间，有一位小数精度，交互提示为 weight，对应与参数 m，单位是 kg。通过下图，我们清楚地看到了，当输入操作超出给定的范围或精度时，背景变成了黄色。<br><img src="http://home.imagepy.org/develop/paratest.png" alt="" title="参数测试"><br>我们在并没有写关于界面的代码，但却实现了一个实时验证的交互对话框，是不是很神奇，接下来我们看看 ParaDialog 还支持哪些数据类型。</p>
+</li>
+<li><h3 id="int"><a href="#int" class="headerlink" title="int"></a>int</h3><strong>(int, (0,10), 0, ‘title’, ‘key’, ‘unit’)</strong><br>(整数，0-10，无小数，标题，键， 单位)</li>
+<li><h3 id="float"><a href="#float" class="headerlink" title="float"></a>float</h3><strong>(float, (0,1), 2, ‘title’, ‘key’, ‘unit’)</strong><br>(浮点，0-1，两位小数，标题，键， 单位)</li>
+<li><h3 id="‘slide’"><a href="#‘slide’" class="headerlink" title="‘slide’"></a>‘slide’</h3><strong>(‘slide’, (0,10), ‘title’, ‘key’, ‘unit’)</strong><br>与 int 类似，只是用滑块进行交互。</li>
+<li><h3 id="bool"><a href="#bool" class="headerlink" title="bool"></a>bool</h3><strong>(bool, title, key)</strong><br>获取bool，标题，键</li>
+<li><h3 id="str"><a href="#str" class="headerlink" title="str"></a>str</h3><strong>(str, title, key, unit)</strong><br>获取字符串 标题，键，单位</li>
+<li><h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3>**(list, ty, title, key, unit)<br>(列表，类型，标题，键，单位)</li>
+<li><h3 id="‘color’"><a href="#‘color’" class="headerlink" title="‘color’"></a>‘color’</h3><strong>(‘color’, title, key, unit)</strong><br>获取颜色，标题，键，单位</li>
+<li><h3 id="‘lab’"><a href="#‘lab’" class="headerlink" title="‘lab’"></a>‘lab’</h3><strong>(‘lab’, cont)</strong><br>展示一段提示语</li>
+<li><h3 id="‘img’"><a href="#‘img’" class="headerlink" title="‘img’"></a>‘img’</h3><strong>(‘img’, title, key, unit)</strong><br>从框架的Manager中获取一幅图像</li>
+<li><h3 id="‘tab’"><a href="#‘tab’" class="headerlink" title="‘tab’"></a>‘tab’</h3><strong>(‘tab’, title, key, unit)</strong><br>从框架的Manager中获取一张表</li>
+<li><h3 id="‘ctrl’"><a href="#‘ctrl’" class="headerlink" title="‘ctrl’"></a>‘ctrl’</h3><strong>(‘ctrl’, key, ctrl)</strong><br>添加任意的控件</li>
+</ul>
+<p>最后附上一个比较完整的例子：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">para = &#123;<span class="string">'i'</span>:<span class="number">10</span>, <span class="string">'f'</span>:<span class="number">1.0</span>, <span class="string">'s'</span>:<span class="number">50</span>, <span class="string">'b'</span>:<span class="keyword">True</span>, <span class="string">'str'</span>:<span class="string">'abc'</span>, <span class="string">'l'</span>:<span class="string">'2'</span>,<span class="string">'c'</span>:(<span class="number">255</span>,<span class="number">0</span>,<span class="number">0</span>)&#125;</div><div class="line">view = [(<span class="string">'lab'</span>, <span class="string">'This is a parameter test'</span>),</div><div class="line">        (int, (<span class="number">0</span>,<span class="number">150</span>), <span class="number">1</span>, <span class="string">'int'</span>, <span class="string">'i'</span>, <span class="string">'u'</span>),</div><div class="line">        (float, (<span class="number">0</span>,<span class="number">1</span>), <span class="number">1</span>, <span class="string">'float'</span>, <span class="string">'f'</span>, <span class="string">'u'</span>),</div><div class="line">        (<span class="string">'slide'</span>, (<span class="number">0</span>,<span class="number">150</span>), <span class="string">'slide'</span>, <span class="string">'s'</span>, <span class="string">'u'</span>),</div><div class="line">        (bool, <span class="string">'this is a bool test'</span>, <span class="string">'b'</span>),</div><div class="line">        (str, <span class="string">'str'</span>, <span class="string">'str'</span>, <span class="string">'u'</span>),</div><div class="line">        (list, [<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>], int, <span class="string">'list'</span>, <span class="string">'l'</span>, <span class="string">'u'</span>),</div><div class="line">        (<span class="string">'color'</span>, <span class="string">'color'</span>,<span class="string">'c'</span>,<span class="string">'u'</span>)]</div><div class="line">IPy.get_para(<span class="string">'Test'</span>, view, para)</div></pre></td></tr></table></figure></p>
+<p>效果如下：<br><img src="http://home.imagepy.org/develop/multipara.png" alt="" title="参数测试"></p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+	
+	<!-- comment -->
+	
+	</div> <!-- col-md-9/col-md-12 -->
+		
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 yxdragon
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+   </html>

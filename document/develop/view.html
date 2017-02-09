@@ -1,0 +1,228 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>系统架构 | ImagePy</title>
+  <meta name="author" content="yxdragon">
+  
+  <meta name="description" content="开源图像处理框架">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="系统架构"/>
+  <meta property="og:site_name" content="ImagePy"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">ImagePy</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/document" title="test">
+			  <i class="fa fa-book"></i>Document
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> 系统架构</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h2 id="ImagePy-系统架构"><a href="#ImagePy-系统架构" class="headerlink" title="ImagePy 系统架构"></a>ImagePy 系统架构</h2><ul>
+<li><h3 id="软件架构"><a href="#软件架构" class="headerlink" title="软件架构"></a>软件架构</h3><strong>Python:</strong>基础开发语言<br><strong>Numpy:</strong>Python对科学计算的支持，提供基础的数组存储和操作，ImagePy的图像数据基础。<br><strong>Scipy:</strong>基于Numpy数组，提供更高级的一系列数学函数。<br><strong>Wxpython:</strong>ImagePy的界面框架啊。</li>
+</ul>
+<h2 id="ImagePy-设计架构"><a href="#ImagePy-设计架构" class="headerlink" title="ImagePy 设计架构"></a>ImagePy 设计架构</h2><p><img src="http://home.imagepy.org/develop/view.png" alt="" title="设计架构"></p>
+<ul>
+<li><h3 id="展示层"><a href="#展示层" class="headerlink" title="展示层"></a>展示层</h3>ImagePy 由主界面，菜单栏，工具条，以及图像窗口构成。</li>
+<li><h3 id="逻辑层"><a href="#逻辑层" class="headerlink" title="逻辑层"></a>逻辑层</h3>当用户执行操作的时候，软件会将对应的功能作用与当前图像</li>
+<li><h3 id="管理层"><a href="#管理层" class="headerlink" title="管理层"></a>管理层</h3>系统底层有若干管理器，组织所有的插件和工具，以及打开的图像。</li>
+</ul>
+<p><strong>项目启动时，加载器会扫描项目的文件夹，并按照其组织结构，映射成对应的菜单项和工具栏。</strong></p>
+<h2 id="ImagePy-项目结构"><a href="#ImagePy-项目结构" class="headerlink" title="ImagePy 项目结构"></a>ImagePy 项目结构</h2><h3 id="ImagePy"><a href="#ImagePy" class="headerlink" title="ImagePy"></a>ImagePy</h3><blockquote>
+<p><strong>ImagePlus:</strong>图像封装类，里面包含图像数据 Image，图像的 Snap 镜像，ROI，色彩索引表，Mark表层标记等。<br>  <strong>IPy:</strong>对一些常用功能的引用类，你可以通过 IPy 访问 ImagePy的许多常用功能，比如打开图像，输出日志等。</p>
+<h3 id="ui"><a href="#ui" class="headerlink" title="ui"></a>ui</h3><blockquote>
+<p><strong>Canvas:</strong>负责绘制 ImagePlus,这其中包括绘制图像数据，绘制选区，以及 Mark 标记。<br>   <strong>CanvasFrame:</strong>Canvas的包裹类，使之能以一个窗口的形式展示。<br>   <strong>ParaDialog:</strong>参数交互类，图像处理的诸多汗说有各种的参数，ParaDialog采用数据驱动视图的方式，可以为你自动生成各类交互对话框。<br>   <strong>…</strong></p>
+</blockquote>
+<h3 id="core"><a href="#core" class="headerlink" title="core"></a>core</h3><blockquote>
+<h4 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h4><blockquote>
+<p><strong>PluginLoader:</strong>插件加载类，负责解析 Menus 目录，并加载其中的插件。<br>    <strong>ToolsLoader:</strong>工具加载类，负责解析 Tools 目录，并加载其中的工具。</p>
+</blockquote>
+<h4 id="engines"><a href="#engines" class="headerlink" title="engines"></a>engines</h4><blockquote>
+<p><strong>Filter:</strong>滤波器基类，用于图像处理类的插件，他将帮助你做一系列的工作，比如处理多通道和图像站，支持选区等。<br>    <strong>Simple:</strong>简单插件基类，不同与Filter，它处理的对象不是图像，而是 ImagePlus 整体（比如处理图像栈，或 ROI）<br>    <strong>Free:</strong>自由插件基类，他的运行不需要依赖图像，可以在任何情况下执行（比如图像的打开功能）<br>    <strong>Macros:</strong>宏插件，他可以由一组命令字符串构成，并依次执行。<br>    <strong>Tool:</strong>工具基类，他定义一组鼠标事件的处理函数，可以在 Canvas 的鼠标事件中被回调。</p>
+</blockquote>
+<h4 id="roi"><a href="#roi" class="headerlink" title="roi"></a>roi</h4><blockquote>
+<p><strong>Point:</strong>点选区<br>    <strong>Line:</strong>线选区<br>    <strong>Polygon:</strong>多边形选区<br>    <strong>…</strong></p>
+</blockquote>
+<h4 id="managers"><a href="#managers" class="headerlink" title="managers"></a>managers</h4><blockquote>
+<p><strong>PluginsManager:</strong>用于管理所有的插件<br>    <strong>ToolsManager:</strong>管理所有的工具<br>    <strong>WindowsManager:</strong>管理全部打开的图像窗口<br>    <strong>ClipboardManager:</strong>管理剪贴板<br>    <strong>ColorManager:</strong>颜色管理期器<br>    <strong>…</strong></p>
+</blockquote>
+</blockquote>
+<h3 id="menus"><a href="#menus" class="headerlink" title="menus"></a>menus</h3><blockquote>
+<h4 id="File"><a href="#File" class="headerlink" title="File"></a>File</h4><blockquote>
+<p><strong>…</strong></p>
+</blockquote>
+<h4 id="Edite"><a href="#Edite" class="headerlink" title="Edite"></a>Edite</h4><blockquote>
+<p><strong>…</strong></p>
+</blockquote>
+<p><strong>这里用于存放全部的插件，可以按照任意目录解析…</strong></p>
+</blockquote>
+<h3 id="tools"><a href="#tools" class="headerlink" title="tools"></a>tools</h3><blockquote>
+<h4 id="Standud"><a href="#Standud" class="headerlink" title="Standud"></a>Standud</h4><blockquote>
+<p><strong>…</strong></p>
+</blockquote>
+<h4 id="Transform"><a href="#Transform" class="headerlink" title="Transform"></a>Transform</h4><blockquote>
+<p><strong>…</strong></p>
+</blockquote>
+<p><strong>这里用于存放所有的工具，注意工具只能存放在 tools 的一级子目录下</strong></p>
+</blockquote>
+</blockquote>
+<h2 id="设计思想"><a href="#设计思想" class="headerlink" title="设计思想"></a>设计思想</h2><p><strong>ImagePy 采用插件式设计思想，根据功能的形式，制定了五种引擎模板。具体功能都是他们的子类，按照一定方式组织起来，然后由相应的加载器和管理器维护。某种意义上说，功能即文件，菜单即目录。这一点，我们将在下一章介绍PluginLoader时详细讲解。</strong></p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+	
+	<!-- comment -->
+	
+	</div> <!-- col-md-9/col-md-12 -->
+		
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 yxdragon
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+   </html>

@@ -1,0 +1,208 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>插件加载 | ImagePy</title>
+  <meta name="author" content="yxdragon">
+  
+  <meta name="description" content="开源图像处理框架">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="插件加载"/>
+  <meta property="og:site_name" content="ImagePy"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">ImagePy</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/document" title="test">
+			  <i class="fa fa-book"></i>Document
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> 插件加载</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h2 id="插件加载-PluginsLoader"><a href="#插件加载-PluginsLoader" class="headerlink" title="插件加载 PluginsLoader"></a>插件加载 PluginsLoader</h2><p><strong>ImagePy 运行时，PluginsLoader负责加载插件，插件会被 PluginManager 管理起来，并且映射成菜单，在用户点击的时候执行</strong></p>
+<ul>
+<li><h3 id="插件目录"><a href="#插件目录" class="headerlink" title="插件目录"></a>插件目录</h3><p><strong>imagepy &gt; menus</strong></p>
+</li>
+<li><h3 id="加载规则"><a href="#加载规则" class="headerlink" title="加载规则"></a>加载规则</h3><p>1.位于 menus 目录及其子目录下<br>2.若文件以 _plg.py 结尾，则文件内的 Plugin 类会被加载。<br>3.若文件以 _plgs.py 结尾，则文件内的 plgs 列表将依次被加载。<br>4.若文件以 .mc结尾，则会被解析成宏命令进行加载。</p>
+</li>
+<li><h3 id="插件和菜单"><a href="#插件和菜单" class="headerlink" title="插件和菜单"></a>插件和菜单</h3><p>插件将会被解析成主程序的菜单，事实上 ImagePy 的菜单也全部是插件。他们会这样映射：<br>1.对应的文件夹结构会被映射成相应的菜单结构<br>2.菜单的标题由插件类的 Title 属性决定<br>3.对于宏映射成的菜单，标题就是文件名（不包括扩展名）</p>
+</li>
+<li><h3 id="顺序调控"><a href="#顺序调控" class="headerlink" title="顺序调控"></a>顺序调控</h3><p>由于菜单是由文件目录映射而成的，因此顺序是按照字母排序形成的，好在我们可以指定其顺序。<br>1.plgs 的内部顺序，由序列决定，我们可以在其中加入’-‘，这将会被映射成菜单分割线。<br>例如 menus &gt; Process &gt; Filter &gt; binary_plgs.py：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ......</span></div><div class="line">plgs = [Dilation, Erosion, <span class="string">'-'</span>, Closing, Opening, <span class="string">'-'</span>, Outline, FillHoles, EDT]</div></pre></td></tr></table></figure>
+<p>2.目录中的插件可以在包的 <strong>init</strong>.py 文件中加入 catlog = […] 来指定，里面填写文件夹名称或文件名（不包括扩展名）<br>比如 menus &gt; <strong>init</strong>.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">catlog = [<span class="string">'File'</span>,<span class="string">'Edite'</span>,<span class="string">'Image'</span>,<span class="string">'Process'</span>,<span class="string">'Selection'</span>,<span class="string">'Analysis'</span>,<span class="string">'Plugins'</span>,<span class="string">'Window'</span>,<span class="string">'Help'</span>]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://home.imagepy.org/develop/menu.png" alt="" title="菜单展示"></p>
+<h2 id="工具加载-ToolsLoader"><a href="#工具加载-ToolsLoader" class="headerlink" title="工具加载 ToolsLoader"></a>工具加载 ToolsLoader</h2><ul>
+<li><h3 id="工具目录"><a href="#工具目录" class="headerlink" title="工具目录"></a>工具目录</h3><p><strong>imagepy &gt; tools</strong></p>
+</li>
+<li><h3 id="加载规则-1"><a href="#加载规则-1" class="headerlink" title="加载规则"></a>加载规则</h3><p>1.位于tools下的以及子目录<br>2.若文件以 _tol.py 结尾，则文件内的 Plugin 类会被加载。<br>3.若文件以 _tols.py 结尾，则文件内的 plgs 列表将依次被加载。<br>4.若文件以 .mc结尾，则会被解析成宏命令进行加载。<br>（加载规则基本与插件加载规则相同，但是需要注意工具的 plgs 列表是一个二元组（Plugin， ‘*.gif’），后者将会被当作图标加载到工具栏上）</p>
+</li>
+<li><h3 id="工具与工具栏"><a href="#工具与工具栏" class="headerlink" title="工具与工具栏"></a>工具与工具栏</h3><p>1.位于 tools &gt; standud 目录下的工具称之为标准工具，它们始终出现在工具栏左侧。<br>2.其他目录下的工具称之为专业工具，他们共用右侧的空间，可以点击最左侧的下拉按钮进行切换。</p>
+</li>
+<li><h3 id="顺序调控-1"><a href="#顺序调控-1" class="headerlink" title="顺序调控"></a>顺序调控</h3><p>与插件的调控方式相同</p>
+</li>
+<li><h3 id="工具栏图标"><a href="#工具栏图标" class="headerlink" title="工具栏图标"></a>工具栏图标</h3><p>准备一个与工具文件名相同（不包括扩 _tol.py）的 16×16 的 gif 小图标，放在形同目录下，当程序加载时，将作为该工具的图标。<br>下面展示一个 Measure 工具集的例子<br>以下为 <strong>init</strong>.py 中的内容</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">catlog = [<span class="string">'coordinate_tol'</span>, <span class="string">'distance_tol'</span>, <span class="string">'angle_tol'</span>， <span class="string">'area_tol'</span>]</div></pre></td></tr></table></figure>
+<p><img src="http://home.imagepy.org/develop/meatools.png" alt="" title="测量目录"><br><img src="http://home.imagepy.org/develop/tools.png" alt="" title="工具"></p>
+</li>
+</ul>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+	
+	<!-- comment -->
+	
+	</div> <!-- col-md-9/col-md-12 -->
+		
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 yxdragon
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+   </html>

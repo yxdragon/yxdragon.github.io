@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>基础引擎 | ImagePy</title>
+  <meta name="author" content="yxdragon">
+  
+  <meta name="description" content="开源图像处理框架">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="基础引擎"/>
+  <meta property="og:site_name" content="ImagePy"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">ImagePy</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/document" title="test">
+			  <i class="fa fa-book"></i>Document
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> 基础引擎</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h2 id="Simple"><a href="#Simple" class="headerlink" title="Simple"></a>Simple</h2><p>Simple 是另一个重要的图像处理引擎，它的结构和 Filter 很像，却又有所区别，我们可以类比来学习。</p>
+<h4 id="Simple-不是针对单张图像，而是整个图像序列，或者-ImagePlus-本身进行操作。如撤销操作，选区扩张操作，或者-3D-滤波器等。"><a href="#Simple-不是针对单张图像，而是整个图像序列，或者-ImagePlus-本身进行操作。如撤销操作，选区扩张操作，或者-3D-滤波器等。" class="headerlink" title="Simple 不是针对单张图像，而是整个图像序列，或者 ImagePlus 本身进行操作。如撤销操作，选区扩张操作，或者 3D 滤波器等。"></a>Simple 不是针对单张图像，而是整个图像序列，或者 ImagePlus 本身进行操作。如撤销操作，选区扩张操作，或者 3D 滤波器等。</h4><h2 id="类结构"><a href="#类结构" class="headerlink" title="类结构"></a>类结构</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Simple</span>:</span></div><div class="line">    title = <span class="string">'Simple'</span></div><div class="line"></div><div class="line">    note = []</div><div class="line"></div><div class="line">    para, view = <span class="keyword">None</span>, <span class="keyword">None</span></div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, ips=None)</span>:</span></div><div class="line">        <span class="comment">#...</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">show</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="comment">#...</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self, ips, imgs, para = None)</span>:</span></div><div class="line">        <span class="comment">#...</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">check</span><span class="params">(self, ips)</span>:</span></div><div class="line">        <span class="comment">#...</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">load</span><span class="params">(self, ips)</span>:</span></div><div class="line">    	<span class="comment">#...</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">start</span><span class="params">(self, para=None)</span>:</span></div><div class="line">        <span class="comment">#...</span></div></pre></td></tr></table></figure>
+<ul>
+<li><h3 id="title"><a href="#title" class="headerlink" title="title:"></a>title:</h3>插件的标题，将作为菜单栏的显示，交互对话框的标题，以及插件管理器中的主键。</li>
+<li><h3 id="para，-view"><a href="#para，-view" class="headerlink" title="para， view:"></a>para， view:</h3>核心函数需要用到的参数，以及他们的交互方式，默认为 None，代表不需要交互。参阅<a href="./parameter.html">参数对话框</a>。</li>
+<li><h3 id="note"><a href="#note" class="headerlink" title="note:"></a>note:</h3><p>插件标签，他们指明 Simple 能处理哪些类型：<br><strong>all:</strong>滤镜能处理所有类型<br><strong>8_bit:</strong>滤镜能处理8位灰度图像<br><strong>16_bit:</strong>滤镜能处理16位灰度图像<br><strong>rgb:</strong>滤镜能处理rgb彩色图像<br><strong>float:</strong>滤镜能处理浮点图像<br><strong>req_roi:</strong>滤镜需要选区<br><strong>req_stack:</strong>滤镜需要图像栈<br><strong>req_stack2d:</strong>滤镜需要图像列表<br><strong>req_stack3d:</strong>滤镜需要连续图像栈</p>
+<h4 id="由于-Simple-是针对整体进行处理，因而相比-Filter-不需要自动便利通道和图像栈，因而也没有行为参数。"><a href="#由于-Simple-是针对整体进行处理，因而相比-Filter-不需要自动便利通道和图像栈，因而也没有行为参数。" class="headerlink" title="由于 Simple 是针对整体进行处理，因而相比 Filter 不需要自动便利通道和图像栈，因而也没有行为参数。"></a>由于 Simple 是针对整体进行处理，因而相比 Filter 不需要自动便利通道和图像栈，因而也没有行为参数。</h4></li>
+<li><h3 id="check"><a href="#check" class="headerlink" title="check:"></a>check:</h3><p>根据 note 标识，对当前图像进行检查，如果不符合要求则弹出提示，退出。</p>
+</li>
+<li><h3 id="load"><a href="#load" class="headerlink" title="load:"></a>load:</h3><p>插件的加载，可以做一些准备工作，比如获取当前图像的像素直方图等，也可以用作进一步的检查，比如检查图像是否为二值图像。返回 True，则继续执行后续流程，返回 False，则终止。</p>
+</li>
+<li><h3 id="show"><a href="#show" class="headerlink" title="show:"></a>show:</h3><p>弹出交互对话框，一般时候我们只需要设定 para， view，Filter 会自动调用 ParaDialog 生成交互对话框，但必要时，可以覆盖 show 方法。</p>
+</li>
+<li><h3 id="run"><a href="#run" class="headerlink" title="run:"></a>run:</h3><p>核心函数，我们将得到如下参数：ips, imgs, para = None，解释如下：<br><strong>ips:</strong>当前处理的 ImagePlus<br><strong>imgs:</strong>当前处理的 ImagePlus 的图像序列<br><strong>para:</strong>当前的处理函数参数</p>
+<h4 id="相比-Filter-缺少了-snap，且-img-换成了-imgs，可见两者侧重点的不同。"><a href="#相比-Filter-缺少了-snap，且-img-换成了-imgs，可见两者侧重点的不同。" class="headerlink" title="相比 Filter 缺少了 snap，且 img 换成了 imgs，可见两者侧重点的不同。"></a>相比 Filter 缺少了 snap，且 img 换成了 imgs，可见两者侧重点的不同。</h4></li>
+<li><h3 id="start"><a href="#start" class="headerlink" title="start:"></a>start:</h3><p>启动函数，当 Simple 被执行时调用，参数 para 如果为 None，则进入交互模式，如果有值，则直接执行 run。（菜单点击的方式下都是传入的 None，而运行宏的时候，可以传入 para 参数）</p>
+</li>
+</ul>
+<h2 id="一个扩张的例子"><a href="#一个扩张的例子" class="headerlink" title="一个扩张的例子"></a>一个扩张的例子</h2><p>最后我们用一个选区扩张的例子来结束本章：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> core.engines <span class="keyword">import</span> Simple</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Inflate</span><span class="params">(Simple)</span>:</span></div><div class="line">    title = <span class="string">'Inflate'</span></div><div class="line">    note = [<span class="string">'all'</span>, <span class="string">'req_roi'</span>]</div><div class="line">    para = &#123;<span class="string">'r'</span>:<span class="number">5</span>&#125;</div><div class="line">    view = [(int, (<span class="number">1</span>,<span class="number">100</span>),<span class="number">0</span>, <span class="string">'radius'</span>, <span class="string">'r'</span>,<span class="string">'pix'</span>)]</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self, ips, imgs, para = None)</span>:</span></div><div class="line">        ips.roi = ips.roi.buffer(para[<span class="string">'r'</span>])</div></pre></td></tr></table></figure></p>
+<p>注意：Inflate 既然是要扩张选区，那么自然要求图像必须有选区，我们在 note 里加上 ‘req_roi’，这样我们可以免于在执行之前判断是否存在选区，以及如果不存在如何提示用户，只需专心做核心工作。<br><img src="http://home.imagepy.org/develop/simple.png" alt="" title="缓冲区的例子"></p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+	
+	<!-- comment -->
+	
+	</div> <!-- col-md-9/col-md-12 -->
+		
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 yxdragon
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+   </html>

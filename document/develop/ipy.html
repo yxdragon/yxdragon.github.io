@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | hexo | ImagePy</title>
+  <title>常用函数 | ImagePy</title>
   <meta name="author" content="yxdragon">
   
   <meta name="description" content="开源图像处理框架">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Hello World"/>
+  <meta property="og:title" content="常用函数"/>
   <meta property="og:site_name" content="ImagePy"/>
 
   
@@ -95,7 +95,7 @@
     	 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> Hello World</h1>
+			<h1 class="title title-inverse "> 常用函数</h1>
 		</div>		
 	
 
@@ -114,15 +114,37 @@
 	<div class="mypage">		
 	  		
 
-	  <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+	  <h2 id="IPy"><a href="#IPy" class="headerlink" title="IPy"></a>IPy</h2><h3 id="imagepy-gt-IPy"><a href="#imagepy-gt-IPy" class="headerlink" title="imagepy &gt; IPy"></a>imagepy &gt; IPy</h3><p>IPy 是一些常用功能的汇总，比如展示一幅图像，获取当前图像窗口等功能，其实这些功能是分布在各个功能组建中的，IPy只是重新引用和整理，并且IPy处于最顶层目录，随处都可以方便的引用这样以来，提高了开发效率。</p>
+<ul>
+<li><h3 id="curapp-None"><a href="#curapp-None" class="headerlink" title="curapp = None"></a>curapp = None</h3><p>当前程序主窗口对象</p>
+</li>
+<li><h3 id="get-window"><a href="#get-window" class="headerlink" title="get_window()"></a>get_window()</h3><p>获取当前窗口</p>
+</li>
+<li><h3 id="get-ips"><a href="#get-ips" class="headerlink" title="get_ips():"></a>get_ips():</h3><p>获取当前的 ImagePlus</p>
+</li>
+<li><h3 id="show-img-imgs-title"><a href="#show-img-imgs-title" class="headerlink" title="show_img(imgs, title):"></a>show_img(imgs, title):</h3><p>展示图像，标题为 title</p>
+</li>
+<li><h3 id="alert-info-title-’image-py’"><a href="#alert-info-title-’image-py’" class="headerlink" title="alert(info, title=’image-py’):"></a>alert(info, title=’image-py’):</h3><p>弹出警告框，标题可设定，默认为 ‘image-py’</p>
+</li>
+<li><h3 id="yes-no-info-title-’image-py’"><a href="#yes-no-info-title-’image-py’" class="headerlink" title="yes_no(info, title=’image-py’):"></a>yes_no(info, title=’image-py’):</h3><p>弹出是非对话框，标题可设定，默认为 ‘image-py’</p>
+</li>
+<li><h3 id="get-path-title-filt-para-None"><a href="#get-path-title-filt-para-None" class="headerlink" title="get_path(title, filt, para=None):"></a>get_path(title, filt, para=None):</h3><p>弹出对话框，获取文件，结果填写在 para</p>
+</li>
+<li><h3 id="get-dir-title-filt-para-None"><a href="#get-dir-title-filt-para-None" class="headerlink" title="get_dir(title, filt, para=None):"></a>get_dir(title, filt, para=None):</h3><p>弹出对话框，获取目录，结果填写在 para</p>
+</li>
+<li><h3 id="get-para-title-view-para"><a href="#get-para-title-view-para" class="headerlink" title="get_para(title, view, para):"></a>get_para(title, view, para):</h3><p>调用 ParaDialog 解析 view，para</p>
+</li>
+<li><h3 id="table-title-data-cols-None-rows-None"><a href="#table-title-data-cols-None-rows-None" class="headerlink" title="table(title, data, cols=None, rows=None):"></a>table(title, data, cols=None, rows=None):</h3><p>写表格，标题行，数据块，列标，行标</p>
+</li>
+<li><h3 id="write-cont-title-’ImagePy’"><a href="#write-cont-title-’ImagePy’" class="headerlink" title="write(cont, title=’ImagePy’):"></a>write(cont, title=’ImagePy’):</h3><p>写日志，窗口标题可设定，默认为’ImagePy’</p>
+</li>
+<li><h3 id="set-progress-i"><a href="#set-progress-i" class="headerlink" title="set_progress(i):"></a>set_progress(i):</h3><p>设置住节目进度条</p>
+</li>
+<li><h3 id="set-info-i"><a href="#set-info-i" class="headerlink" title="set_info(i):"></a>set_info(i):</h3><p>设置住界面状态栏的信息</p>
+</li>
+<li><h3 id="run-macros-cmds"><a href="#run-macros-cmds" class="headerlink" title="run_macros(cmds):"></a>run_macros(cmds):</h3><p>执行宏</p>
+</li>
+</ul>
 	  
 	</div>
 

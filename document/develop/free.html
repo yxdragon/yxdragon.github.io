@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>自由引擎 | ImagePy</title>
+  <meta name="author" content="yxdragon">
+  
+  <meta name="description" content="开源图像处理框架">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="自由引擎"/>
+  <meta property="og:site_name" content="ImagePy"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">ImagePy</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/document" title="test">
+			  <i class="fa fa-book"></i>Document
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> 自由引擎</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h2 id="Free"><a href="#Free" class="headerlink" title="Free"></a>Free</h2><p>Free 是与系统相关性最若的一种引擎，它仅仅是完成一个任务，之所以称之为自由，是因为 Filter，Simple 处理的对象都是 ImagePlus，（如果没有图像，那么他们的 check 函数会提示并终止运行），而 Free 可以不依赖图像运行。</p>
+<h4 id="的确图像是我们的核心，但总有一些工作是与处理无关的，比如打开，新建图像，打开主题帮助，查看版本信息等操作。虽然这些看起来可以集成到系统功能中，但-ImagePy-奉行的是一切功能皆插件。"><a href="#的确图像是我们的核心，但总有一些工作是与处理无关的，比如打开，新建图像，打开主题帮助，查看版本信息等操作。虽然这些看起来可以集成到系统功能中，但-ImagePy-奉行的是一切功能皆插件。" class="headerlink" title="的确图像是我们的核心，但总有一些工作是与处理无关的，比如打开，新建图像，打开主题帮助，查看版本信息等操作。虽然这些看起来可以集成到系统功能中，但 ImagePy 奉行的是一切功能皆插件。"></a>的确图像是我们的核心，但总有一些工作是与处理无关的，比如打开，新建图像，打开主题帮助，查看版本信息等操作。虽然这些看起来可以集成到系统功能中，但 ImagePy 奉行的是一切功能皆插件。</h4><h2 id="类结构"><a href="#类结构" class="headerlink" title="类结构"></a>类结构</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Free</span>:</span></div><div class="line">    title = <span class="string">'Free'</span></div><div class="line"></div><div class="line">    para, view = <span class="keyword">None</span>, <span class="keyword">None</span></div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="comment">#...</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">show</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="comment">#...</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self, para = None)</span>:</span></div><div class="line">        <span class="comment">#...</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">start</span><span class="params">(self, para=None)</span>:</span></div><div class="line">        <span class="comment">#...</span></div></pre></td></tr></table></figure>
+<ul>
+<li><h3 id="title"><a href="#title" class="headerlink" title="title:"></a>title:</h3>插件的标题，将作为菜单栏的显示，交互对话框的标题，以及插件管理器中的主键。</li>
+<li><h3 id="para，-view"><a href="#para，-view" class="headerlink" title="para， view:"></a>para， view:</h3>核心函数需要用到的参数，以及他们的交互方式，默认为 None，代表不需要交互。参阅<a href="./parameter.html">参数对话框</a>。</li>
+<li><h3 id="show"><a href="#show" class="headerlink" title="show:"></a>show:</h3>弹出交互对话框，一般时候我们只需要设定 para， view，Filter 会自动调用 ParaDialog 生成交互对话框，但必要时，可以覆盖 show 方法。</li>
+<li><h3 id="run"><a href="#run" class="headerlink" title="run:"></a>run:</h3>核心函数，para 将作为参数传入，在这里做你想要做的。</li>
+<li><h3 id="start"><a href="#start" class="headerlink" title="start:"></a>start:</h3>启动函数，当 Free 被执行时调用，参数 para 如果为 None，则进入交互模式，如果有值，则直接执行 run。（菜单点击的方式下都是传入的 None，而运行宏的时候，可以传入 para 参数）</li>
+</ul>
+<h2 id="一个打开图像的例子"><a href="#一个打开图像的例子" class="headerlink" title="一个打开图像的例子"></a>一个打开图像的例子</h2><p>最后我们用一个打开图像的例子来结束本章：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> core.engines <span class="keyword">import</span> Free</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">OpenFile</span><span class="params">(Free)</span>:</span></div><div class="line">    title = <span class="string">'Open'</span></div><div class="line">    para = &#123;<span class="string">'path'</span>:<span class="string">''</span>&#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">show</span><span class="params">(self)</span>:</span></div><div class="line">        filt = <span class="string">'BMP files (*.bmp)|*.bmp|PNG files (*.png)|*.png|JPG files (*.jpg)|*.jpg|GIF files (*.gif)|*.gif'</span></div><div class="line">        <span class="keyword">return</span> IPy.getpath(<span class="string">'Open..'</span>, filt, self.para)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self, para = None)</span>:</span></div><div class="line">        path = para[<span class="string">'path'</span>]</div><div class="line">        fp, fn = os.path.split(path)</div><div class="line">        fn, fe = os.path.splitext(fn) </div><div class="line">        img = imread(path)</div><div class="line">        IPy.show_img([img], fn)</div></pre></td></tr></table></figure></p>
+<p>注意：一些与图像处理不相关的工作都是继承于 Free 的，可以是打开图像，查看版本号，自动更新，甚至是退出程序。</p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+	
+	<!-- comment -->
+	
+	</div> <!-- col-md-9/col-md-12 -->
+		
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 yxdragon
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+   </html>

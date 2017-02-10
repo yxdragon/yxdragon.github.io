@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>宏引擎 | ImagePy</title>
+  <meta name="author" content="yxdragon">
+  
+  <meta name="description" content="开源图像处理框架">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="宏引擎"/>
+  <meta property="og:site_name" content="ImagePy"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">ImagePy</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/document" title="test">
+			  <i class="fa fa-book"></i>Document
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> 宏引擎</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h2 id="Macros"><a href="#Macros" class="headerlink" title="Macros"></a>Macros</h2><p>Macros 是一个宏执行器引擎，它负责将一串 ImagePy 命令依次执行。</p>
+<h4 id="事实上我们几乎不会去继承-Macros，它仅仅是-ImagePy-为了实现宏功能，并统一为一种引擎接口而设计的辅助类。"><a href="#事实上我们几乎不会去继承-Macros，它仅仅是-ImagePy-为了实现宏功能，并统一为一种引擎接口而设计的辅助类。" class="headerlink" title="事实上我们几乎不会去继承 Macros，它仅仅是 ImagePy 为了实现宏功能，并统一为一种引擎接口而设计的辅助类。"></a>事实上我们几乎不会去继承 Macros，它仅仅是 ImagePy 为了实现宏功能，并统一为一种引擎接口而设计的辅助类。</h4><h2 id="类结构"><a href="#类结构" class="headerlink" title="类结构"></a>类结构</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Macros</span>:</span></div><div class="line">    title = <span class="string">'Macros'</span></div><div class="line">    cmds = [....]</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="comment"># run every line in cmds</span></div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">start</span><span class="params">(self, para=None)</span>:</span></div><div class="line">        <span class="comment"># just run</span></div></pre></td></tr></table></figure>
+<ul>
+<li><h3 id="title"><a href="#title" class="headerlink" title="title:"></a>title:</h3>插件的标题，将作为菜单栏的显示，交互对话框的标题，以及插件管理器中的主键。</li>
+<li><h3 id="run"><a href="#run" class="headerlink" title="run:"></a>run:</h3>依次执行每一行命令</li>
+<li><h3 id="start"><a href="#start" class="headerlink" title="start:"></a>start:</h3>run</li>
+</ul>
+<h2 id="实现机制"><a href="#实现机制" class="headerlink" title="实现机制"></a>实现机制</h2><p><strong>宏录制功能应该是 ImagePy 里面非常绚的一个功能了，但事实上它的代码实现不超过20行，这主要是得益于整体的高弹性式设计。我们还是以最简单的高斯模糊为例，来看看它的实现机制。</strong></p>
+<ul>
+<li><h3 id="录制演示"><a href="#录制演示" class="headerlink" title="录制演示"></a>录制演示</h3><p><strong>Plugins &gt; Macros &gt; Recoder</strong><br><img src="http://home.imagepy.org/develop/macros.png 宏录制" alt=""></p>
+</li>
+<li><h3 id="录制机制"><a href="#录制机制" class="headerlink" title="录制机制"></a>录制机制</h3><p>无论是 Filter，Simple，Free 他们都是引擎类，都有共同的接口 start(self, para)，当某个插件被执行后，title &gt; para 将被录制器记录。Gaussian&gt;{‘sigma’:8.0}</p>
+</li>
+<li><h3 id="执行机制"><a href="#执行机制" class="headerlink" title="执行机制"></a>执行机制</h3><p>所有的插件都被 PluginsManager 所管理，PluginsManager 内部实际上是维护了一个以插件的 title 为主键的键值对。所以我们这样做：<br>1.解析宏命令，用 ‘&gt;’ 进行字符串分割<br>2.用分割的 title 作为主键去 PluginsManager 中查找，得到滤波器的实例。<br>3.调用 eval 函数，把 para 重新解析成 python 对象（这里充分发挥了脚本语言的优势）<br>4.执行获取的滤波器的 start 方法，把 para 当作参数输入。<br>（还记得引起的 start 方法特性，当 para 为 None 时进行交互，否则直接执行 run）</p>
+</li>
+</ul>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+	
+	<!-- comment -->
+	
+	</div> <!-- col-md-9/col-md-12 -->
+		
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 yxdragon
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+   </html>

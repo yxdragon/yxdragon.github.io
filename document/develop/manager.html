@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>管理器 | ImagePy</title>
+  <meta name="author" content="yxdragon">
+  
+  <meta name="description" content="开源图像处理框架">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="管理器"/>
+  <meta property="og:site_name" content="ImagePy"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">ImagePy</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/document" title="test">
+			  <i class="fa fa-book"></i>Document
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> 管理器</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h2 id="Manager"><a href="#Manager" class="headerlink" title="Manager"></a>Manager</h2><h3 id="imagepy-gt-core-gt-managers"><a href="#imagepy-gt-core-gt-managers" class="headerlink" title="imagepy &gt; core &gt; managers"></a>imagepy &gt; core &gt; managers</h3><p><strong>管理器是 ImagePy 里很重要的一个概念，作为插件系统，各个部件都是松散耦合。而管理器的作用就是全局协调。目前 ImagePy中有如下一些管理器，我们将一一介绍。</strong></p>
+<h2 id="WindowsManager"><a href="#WindowsManager" class="headerlink" title="WindowsManager"></a>WindowsManager</h2><p>最重要的管理器，他负责管理和调度窗口</p>
+<ul>
+<li><h3 id="add-cls-win"><a href="#add-cls-win" class="headerlink" title="add(cls, win):"></a>add(cls, win):</h3>将窗口添加到管理器中（窗口打开时自动添加）</li>
+<li><h3 id="remove-cls-win"><a href="#remove-cls-win" class="headerlink" title="remove(cls, win):"></a>remove(cls, win):</h3>将窗口从管理器中移除（窗口关闭时自动移除）</li>
+<li><h3 id="get-cls-title-None"><a href="#get-cls-title-None" class="headerlink" title="get(cls, title=None):"></a>get(cls, title=None):</h3>获取指定的窗口，如果没有指定，则返回最前端的一个</li>
+<li><h3 id="get-titles-cls"><a href="#get-titles-cls" class="headerlink" title="get_titles(cls):"></a>get_titles(cls):</h3>获取当前所有窗口的标题序列</li>
+<li><h3 id="name-cls-name"><a href="#name-cls-name" class="headerlink" title="name(cls, name):"></a>name(cls, name):</h3>获得命名，如果没有重复则返回本身，有重复则添加数字后缀</li>
+<li><h3 id="close-cls-name"><a href="#close-cls-name" class="headerlink" title="close(cls, name):"></a>close(cls, name):</h3>关闭窗口</li>
+</ul>
+<h2 id="TextLogManager"><a href="#TextLogManager" class="headerlink" title="TextLogManager"></a>TextLogManager</h2><p>  <strong>日志窗口管理器，方法与 WindowsManager 完全相同</strong></p>
+<h2 id="TableLogManager"><a href="#TableLogManager" class="headerlink" title="TableLogManager"></a>TableLogManager</h2><p>  <strong>表格窗口管理器，方法与 WindowsManager 完全相同</strong></p>
+<h2 id="PluginsManager"><a href="#PluginsManager" class="headerlink" title="PluginsManager"></a>PluginsManager</h2><p><strong>在插件被 PluginsLoader 解析之后，会以键值对形式保存在这里。</strong></p>
+<ul>
+<li><h3 id="add-cls-plg"><a href="#add-cls-plg" class="headerlink" title="add(cls, plg)"></a>add(cls, plg)</h3>将插件添加到管理器</li>
+<li><h3 id="get-cls-name"><a href="#get-cls-name" class="headerlink" title="get(cls, name)"></a>get(cls, name)</h3>根据名称获取插件实例</li>
+</ul>
+<h2 id="ToolsManager"><a href="#ToolsManager" class="headerlink" title="ToolsManager"></a>ToolsManager</h2><p><strong>在工具被 ToolsLoader 解析之后，会以键值对形式保存在这里。</strong></p>
+<ul>
+<li><h3 id="add-cls-tool"><a href="#add-cls-tool" class="headerlink" title="add(cls, tool)"></a>add(cls, tool)</h3>将工具添加到管理器</li>
+<li><h3 id="get-cls-name-1"><a href="#get-cls-name-1" class="headerlink" title="get(cls, name)"></a>get(cls, name)</h3>根据名称获取工具实例</li>
+<li><h3 id="set-cls-tool"><a href="#set-cls-tool" class="headerlink" title="set(cls, tool)"></a>set(cls, tool)</h3>设定当前工具，一般由工具栏的点击事件触发</li>
+</ul>
+<h2 id="RoiManager"><a href="#RoiManager" class="headerlink" title="RoiManager"></a>RoiManager</h2><p><strong>用于存储选取，以便在需要的时候加载</strong></p>
+<ul>
+<li><h3 id="add-cls-name-roi"><a href="#add-cls-name-roi" class="headerlink" title="add(cls, name, roi)"></a>add(cls, name, roi)</h3>将选区添加到管理器</li>
+<li><h3 id="get-cls-name-2"><a href="#get-cls-name-2" class="headerlink" title="get(cls, name)"></a>get(cls, name)</h3>根据名称获取选区实例</li>
+</ul>
+<h2 id="ColorManager"><a href="#ColorManager" class="headerlink" title="ColorManager"></a>ColorManager</h2><ul>
+<li><h3 id="get-color-cls"><a href="#get-color-cls" class="headerlink" title="get_color(cls):"></a>get_color(cls):</h3>弹出颜色对话框，交互式获取颜色</li>
+<li><h3 id="set-front-cls-color"><a href="#set-front-cls-color" class="headerlink" title="set_front(cls, color):"></a>set_front(cls, color):</h3>设定前景色</li>
+<li><h3 id="set-back-cls-color"><a href="#set-back-cls-color" class="headerlink" title="set_back(cls, color):"></a>set_back(cls, color):</h3>设定背景色</li>
+<li><h3 id="get-front-cls-one-False"><a href="#get-front-cls-one-False" class="headerlink" title="get_front(cls, one=False):"></a>get_front(cls, one=False):</h3>获取前景色</li>
+<li><h3 id="get-back-cls-one"><a href="#get-back-cls-one" class="headerlink" title="get_back(cls, one):"></a>get_back(cls, one):</h3>获取背景色</li>
+<li><h3 id="get-lut-cls-name-’grays’"><a href="#get-lut-cls-name-’grays’" class="headerlink" title="get_lut(cls, name=’grays’):"></a>get_lut(cls, name=’grays’):</h3>获取索引表，默认是灰度色阶</li>
+</ul>
+<h2 id="ClipBoardManager"><a href="#ClipBoardManager" class="headerlink" title="ClipBoardManager:"></a>ClipBoardManager:</h2><ul>
+<li><h3 id="roi"><a href="#roi" class="headerlink" title="roi"></a>roi</h3>剪切的选区</li>
+<li><h3 id="img"><a href="#img" class="headerlink" title="img"></a>img</h3>剪切的图像</li>
+</ul>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+	
+	<!-- comment -->
+	
+	</div> <!-- col-md-9/col-md-12 -->
+		
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 yxdragon
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+   </html>

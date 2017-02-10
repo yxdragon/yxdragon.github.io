@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>工具 | ImagePy</title>
+  <meta name="author" content="yxdragon">
+  
+  <meta name="description" content="开源图像处理框架">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="工具"/>
+  <meta property="og:site_name" content="ImagePy"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">ImagePy</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/document" title="test">
+			  <i class="fa fa-book"></i>Document
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> 工具</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h2 id="Tool"><a href="#Tool" class="headerlink" title="Tool"></a>Tool</h2><p>Filter， Simple 都可以处理图像，但有时候我们需要用鼠标交互对图像进行一些操作。比如我们的选区操作，绘图操作等。ImagePlus 被绘制在一个 Canvas 上，Canvas 是 wxpython 的 Panel 子类，当然我们可以对其添加鼠标事件，但我们并不推荐这样做，原因之一是这样做比较繁琐，其次，多工具同时注册事件，会引起管理混乱和事件冲突。</p>
+<h2 id="结构图"><a href="#结构图" class="headerlink" title="结构图"></a>结构图</h2><p><img src="http://home.imagepy.org/develop/tool.png" alt="" title="工具结构图"></p>
+<ul>
+<li><h3 id="事件的调用遵循如下规则："><a href="#事件的调用遵循如下规则：" class="headerlink" title="事件的调用遵循如下规则："></a>事件的调用遵循如下规则：</h3>1.事件最初由 Canvas 类触发。<br>2.如果 Canvas 持有的 ImagePlus 有一个 CustomTool，则交给它来处理。<br>3.如果没有，则交割 ToolsManager 的当前工具来处理。<h4 id="一般来说，比如选区，画笔等工具，是全局有效的，但有时我们需要于单一图像做特定交互，比如当某个图像栈进入了三视图观察状态时，这是-CustomTool-就变得很有用。"><a href="#一般来说，比如选区，画笔等工具，是全局有效的，但有时我们需要于单一图像做特定交互，比如当某个图像栈进入了三视图观察状态时，这是-CustomTool-就变得很有用。" class="headerlink" title="一般来说，比如选区，画笔等工具，是全局有效的，但有时我们需要于单一图像做特定交互，比如当某个图像栈进入了三视图观察状态时，这是 CustomTool 就变得很有用。"></a>一般来说，比如选区，画笔等工具，是全局有效的，但有时我们需要于单一图像做特定交互，比如当某个图像栈进入了三视图观察状态时，这是 CustomTool 就变得很有用。</h4></li>
+</ul>
+<h2 id="类结构"><a href="#类结构" class="headerlink" title="类结构"></a>类结构</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tool</span>:</span></div><div class="line">    title = <span class="string">'Tool'</span></div><div class="line">    view, para = <span class="keyword">None</span>, <span class="keyword">None</span> </div><div class="line">           </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">show</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="comment">#...</span></div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">config</span><span class="params">(self)</span>:</span><span class="keyword">pass</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">load</span><span class="params">(self)</span>:</span><span class="keyword">pass</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">switch</span><span class="params">(self)</span>:</span><span class="keyword">pass</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mouse_down</span><span class="params">(self, ips, x, y, btn, **key)</span>:</span> <span class="keyword">pass</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mouse_up</span><span class="params">(self, ips, x, y, btn, **key)</span>:</span> <span class="keyword">pass</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mouse_move</span><span class="params">(self, ips, x, y, btn, **key)</span>:</span> <span class="keyword">pass</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mouse_wheel</span><span class="params">(self, ips, x, y, d, **key)</span>:</span> <span class="keyword">pass</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">start</span><span class="params">(self)</span>:</span>ToolsManager.set(self)</div></pre></td></tr></table></figure>
+<ul>
+<li><h3 id="title"><a href="#title" class="headerlink" title="title:"></a>title:</h3>工具标题，当鼠标进入工具时 ImagePy 主界面的状态栏上显示的内容。也是工具管理器中的主键。</li>
+<li><h3 id="para，-view"><a href="#para，-view" class="headerlink" title="para， view:"></a>para， view:</h3>核心函数需要用到的参数，以及他们的交互方式，默认为 None，代表不需要交互，这里的 para 代表工具自身特性，比如画笔的宽度书属性等。参阅上一节<a href="./parameter.html">参数对话框</a>。</li>
+<li><h3 id="show"><a href="#show" class="headerlink" title="show:"></a>show:</h3>双击工具按钮时，弹出交互对话框，一般时候我们只需要设定 para， view，Tool 会自动调用 ParaDialog 生成交互对话框，但必要时，可以覆盖 show 方法。</li>
+<li><h3 id="config"><a href="#config" class="headerlink" title="config:"></a>config:</h3>当交互对话框确认时将会被调用，用于生效我们的设置。一些时候参数值的改变本身就会生效，例如调整画笔宽度，但有些时候，需要对外部进行一些通讯，比如设置全局颜色，就需要和 ColorManager 通讯。</li>
+<li><h3 id="load"><a href="#load" class="headerlink" title="load:"></a>load:</h3>工具被选中时调用</li>
+<li><h3 id="swith"><a href="#swith" class="headerlink" title="swith:"></a>swith:</h3>由当前工具切换到另一个工具时调用（可以处理绘制了一半还没有闭合的多边形选区等）</li>
+<li><h3 id="mouse-down"><a href="#mouse-down" class="headerlink" title="mouse_down"></a>mouse_down</h3>鼠标按下时调用，其参数意义如下：<br><strong>ips:</strong>与事件相关的 ImagePlus<br><strong>x:</strong>数据坐标系下的 x<br><strong>y:</strong>数据坐标系下的 y<br><strong>btn:</strong>按下的按钮（1：左键，2：中键，3：右键）<br><strong>**key</strong> 其他参数<blockquote>
+<p>‘shift’:shift 是否被按下<br>  ‘ctrl’:ctrl 是否被按下<br>  ‘alt’:alt 是否被按下<br>  ‘canvas:’获取与事件关联的 canvas</p>
+</blockquote>
+</li>
+<li><h3 id="mouse-up"><a href="#mouse-up" class="headerlink" title="mouse_up"></a>mouse_up</h3>参数和意义与 mouse_down 完全相同</li>
+<li><h3 id="mouse-move"><a href="#mouse-move" class="headerlink" title="mouse_move"></a>mouse_move</h3>参数和意义与 mouse_down 完全相同，另外附加如果没有按键按下，btn=0</li>
+<li><h3 id="mouse-wheel"><a href="#mouse-wheel" class="headerlink" title="mouse_wheel"></a>mouse_wheel</h3>参数和意义与 mouse_down 基本相同，除了btn参数变成了d，代表滚动量</li>
+</ul>
+<h2 id="一个画笔的例子"><a href="#一个画笔的例子" class="headerlink" title="一个画笔的例子"></a>一个画笔的例子</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> core.draw <span class="keyword">import</span> paint</div><div class="line"><span class="keyword">from</span> core.engines <span class="keyword">import</span> Tool</div><div class="line"><span class="keyword">import</span> wx</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Plugin</span><span class="params">(Tool)</span>:</span></div><div class="line">    title = <span class="string">'Pencil'</span></div><div class="line">    view = [(int, (<span class="number">0</span>,<span class="number">30</span>), <span class="number">0</span>,  <span class="string">u'width'</span>, <span class="string">'width'</span>, <span class="string">'pix'</span>)]</div><div class="line">    para = &#123;<span class="string">'width'</span>:<span class="number">1</span>&#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.sta = <span class="number">0</span></div><div class="line">        self.paint = paint.Paint()</div><div class="line">        self.cursor = wx.CURSOR_CROSS</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mouse_down</span><span class="params">(self, ips, x, y, btn, **key)</span>:</span></div><div class="line">        self.sta = <span class="number">1</span></div><div class="line">        self.paint.set_curpt(x,y)</div><div class="line">        ips.snapshot()</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mouse_up</span><span class="params">(self, ips, x, y, btn, **key)</span>:</span></div><div class="line">        self.sta = <span class="number">0</span></div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mouse_move</span><span class="params">(self, ips, x, y, btn, **key)</span>:</span></div><div class="line">        <span class="keyword">if</span> self.sta==<span class="number">0</span>:<span class="keyword">return</span></div><div class="line">        self.paint.lineto(ips.get_img(),x,y, self.para[<span class="string">'width'</span>])</div><div class="line">        ips.update = <span class="keyword">True</span></div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mouse_wheel</span><span class="params">(self, ips, x, y, d, **key)</span>:</span><span class="keyword">pass</span></div></pre></td></tr></table></figure>
+<h3 id="效果如下："><a href="#效果如下：" class="headerlink" title="效果如下："></a>效果如下：</h3><p><img src="http://home.imagepy.org/develop/painter.png" alt="" title="画笔工具"></p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+	
+	<!-- comment -->
+	
+	</div> <!-- col-md-9/col-md-12 -->
+		
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 yxdragon
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+   </html>

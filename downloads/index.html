@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>直方图调整 | ImagePy</title>
+  <title>Downloads | ImagePy</title>
   <meta name="author" content="yxdragon">
   
   <meta name="description" content="开源图像处理框架">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="直方图调整"/>
+  <meta property="og:title" content="Downloads"/>
   <meta property="og:site_name" content="ImagePy"/>
 
   
@@ -101,7 +101,7 @@
     	 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> 直方图调整</h1>
+			<h1 class="title title-inverse "> Downloads</h1>
 		</div>		
 	
 
@@ -120,23 +120,29 @@
 	<div class="mypage">		
 	  		
 
-	  <h2 id="直方图"><a href="#直方图" class="headerlink" title="直方图"></a>直方图</h2><p>直方图是对图像内的像素进行频率统计而绘制出来的，他体现了图像的像素值的统计分布，属于全局特征，也称之为色阶。</p>
-<p><strong> ImagePy 中所有的直方图运算都支持图像预览和撤销操作，如果有选区在图像上，则自动只处理选取内的像素，在处理图像栈的时候，会询问是否进行批量处理。</strong></p>
-<ul>
-<li><h3 id="Image-gt-Grey-Stairs"><a href="#Image-gt-Grey-Stairs" class="headerlink" title="Image &gt; Grey Stairs"></a>Image &gt; Grey Stairs</h3>色阶调整</li>
+	  <h2 id="Mac-Linux-安装"><a href="#Mac-Linux-安装" class="headerlink" title="Mac/Linux 安装"></a>Mac/Linux 安装</h2><blockquote>
+<p><strong>对于Mac/Linux操作系统，已经安装了Python，因而只需要在联网状态下执行以下命令：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ python -m pip install numpy</div><div class="line">$ python -m pip install scipy</div><div class="line">$ python -m pip install shapely</div><div class="line">$ python -m pip install wxpython</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="Windows-安装"><a href="#Windows-安装" class="headerlink" title="Windows 安装"></a>Windows 安装</h2><ul>
+<li><h3 id="Python-环境及扩展模块"><a href="#Python-环境及扩展模块" class="headerlink" title="Python 环境及扩展模块"></a>Python 环境及扩展模块</h3><ol>
+<li><p>安装包下载<br>ImagePy 是基于 Python 的，我们首先要安装Python及相关模块。<br><a href="http://pan.baidu.com/s/1hswxriW" target="_blank" rel="external">32位Python+相关扩展模块下载</a><br><a href="http://pan.baidu.com/s/1c2gW01q" target="_blank" rel="external">64位Python+相关扩展模块下载</a></p>
+</li>
+<li><p>解压后如下<br><img src="http://home.imagepy.org/download/step2.png" alt="" title="解压"></p>
+</li>
+<li>运行Python3.6，<strong>注意要勾上最下方的 “Add Python 3.6 to PATH”</strong><br><img src="http://home.imagepy.org/download/step3.png" alt="" title="安装Python"></li>
+<li>其他一切默认，直到看到如下界面，Python安装完成。<br><img src="http://home.imagepy.org/download/step4.png" alt="" title="安装完成"></li>
+<li>运行 setup.py，安装需要的扩展模块<br><img src="http://home.imagepy.org/download/step5.png" alt="" title="扩展模块"></li>
+<li>等待自动安装，当看到Everythin  is OK！则环境安装成功。<br><img src="http://home.imagepy.org/download/step6.png" alt="" title="安装成功"></li>
+</ol>
+</li>
+<li><h3 id="安装ImagePy"><a href="#安装ImagePy" class="headerlink" title="安装ImagePy"></a>安装ImagePy</h3><ol>
+<li><a href="http://home.imagepy.org/download/imagepy.rar" target="_blank" rel="external">点击下载 ImagePy</a>，注意会定期更新</li>
+<li>解压后双击<strong>ImagePy.bat</strong>，运行程序：<br><img src="http://home.imagepy.org/download/step7.png" alt="" title="运行程序"></li>
+<li>看到如下主界面，至此成功安装并运行：<br><img src="http://home.imagepy.org/download/step8.png" alt="" title="运行成功"><br>运行后会伴随黑色的命令行窗口，请勿关闭，同时一个白色的日志窗口，打印没有成功加载的插件，可以关闭忽略。</li>
+</ol>
+<h4 id="感谢使用ImagePy，更多使用技巧交流，技术支持，欢迎加入群-QQ：596310256"><a href="#感谢使用ImagePy，更多使用技巧交流，技术支持，欢迎加入群-QQ：596310256" class="headerlink" title="感谢使用ImagePy，更多使用技巧交流，技术支持，欢迎加入群 QQ：596310256"></a>感谢使用ImagePy，更多使用技巧交流，技术支持，欢迎加入群 QQ：596310256</h4></li>
 </ul>
-<p><img src="http://home.imagepy.org/manual/stairs.png" alt="" title="色阶调整"></p>
-<ul>
-<li><h3 id="Image-gt-Bright-amp-Constract"><a href="#Image-gt-Bright-amp-Constract" class="headerlink" title="Image &gt; Bright &amp; Constract"></a>Image &gt; Bright &amp; Constract</h3>亮度对比度</li>
-</ul>
-<p><img src="http://home.imagepy.org/manual/bandc.png" alt="" title="亮度对比度"></p>
-<ul>
-<li><h3 id="Image-gt-Threshold"><a href="#Image-gt-Threshold" class="headerlink" title="Image &gt; Threshold"></a>Image &gt; Threshold</h3>阈值调整，一种非此即彼的映射，等价于对比度的极限调整。</li>
-<li><h3 id="Image-gt-Color-Balance"><a href="#Image-gt-Color-Balance" class="headerlink" title="Image &gt; Color Balance"></a>Image &gt; Color Balance</h3>色彩平衡（只对彩色图像有效，可以理解成依次调整各通道的亮度，对比度）</li>
-<li><h3 id="Image-gt-Color-Stairs"><a href="#Image-gt-Color-Stairs" class="headerlink" title="Image &gt; Color Stairs"></a>Image &gt; Color Stairs</h3>彩色色阶（只对彩色图像有效，可以理解成依次调整各通道的色阶）</li>
-</ul>
-<p><img src="http://home.imagepy.org/manual/colorbalance.png" alt="" title="选区演示"></p>
-<h4 id="注：所有的直方图调整，实质相当与对原图的像素值做一个-y-kx-b-的运算，通过一个线性变换，映射到一个新值的过程。"><a href="#注：所有的直方图调整，实质相当与对原图的像素值做一个-y-kx-b-的运算，通过一个线性变换，映射到一个新值的过程。" class="headerlink" title="注：所有的直方图调整，实质相当与对原图的像素值做一个 y = kx + b 的运算，通过一个线性变换，映射到一个新值的过程。"></a>注：所有的直方图调整，实质相当与对原图的像素值做一个 y = kx + b 的运算，通过一个线性变换，映射到一个新值的过程。</h4>	  
+	  
 	</div>
 
 	<div>
